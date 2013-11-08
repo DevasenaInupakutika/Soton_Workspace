@@ -7,10 +7,10 @@ import java.util.*;
 public class RSSFeed implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int _itemcount = 0;
-	private List _itemlist;
+	private List<RSSItem> _itemlist;
 	 
 	RSSFeed() {
-	_itemlist = new Vector(0);
+	_itemlist = new Vector<RSSItem>(0);
 	}
 	 
 	void addItem(RSSItem item) {

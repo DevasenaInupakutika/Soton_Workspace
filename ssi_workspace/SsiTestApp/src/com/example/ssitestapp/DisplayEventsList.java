@@ -10,8 +10,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
-import javax.xml.parsers.*;
-import org.xml.sax.*;
 
 public class DisplayEventsList extends Activity {
 
@@ -25,7 +23,6 @@ public class DisplayEventsList extends Activity {
 		ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 		
-		Intent eventspage = getIntent();
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}

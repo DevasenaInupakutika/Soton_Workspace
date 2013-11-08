@@ -26,6 +26,6 @@
     <string name="title">null</string>
     <string name="date">date</string>
     <string name="loading">Loading please wait ...</string>
-    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_list">Blogs Feed</string>
 
 </resources>

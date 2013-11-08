@@ -41,4 +41,6 @@
 <fullyQualifiedTypeName name="android.webkit.WebSettings"/>
 <fullyQualifiedTypeName name="android.webkit.WebSettings.PluginState"/>
 <fullyQualifiedTypeName name="android.webkit.WebSettings.LayoutAlgorithm"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
 </qualifiedTypeNameHistroy>

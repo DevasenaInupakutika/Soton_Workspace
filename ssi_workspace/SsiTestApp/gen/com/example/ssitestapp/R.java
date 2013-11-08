@@ -67,8 +67,7 @@ public final class R {
         public static final int activity_main=0x7f030002;
         public static final int detail=0x7f030003;
         public static final int feed_list=0x7f030004;
-        public static final int item_list=0x7f030005;
-        public static final int list_item=0x7f030006;
+        public static final int list_item=0x7f030005;
     }
     public static final class menu {
         public static final int display_blog=0x7f080000;

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ssitestapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/images"
+        android:label=" "
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.ssitestapp.MainActivity"
+            android:label=" " >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.ssitestapp.DisplayEventsList"
+            android:layout_gravity="center"
+            android:label="@string/title_activity_display_events_list"
+            android:parentActivityName="com.example.ssitestapp.MainActivity"
+            android:textStyle="bold" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.ssitestapp.DisplayBlogActivity"
+            android:label="@string/title_activity_display_blog"
+            android:parentActivityName="com.example.ssitestapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

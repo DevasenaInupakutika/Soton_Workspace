@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LinearLayout" >
+  
+   <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value4" 
+      android:textStyle="bold"/> 
+          
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value2" 
+      android:layout_gravity="center"
+      android:textStyle="bold" 
+      android:fontFamily="Helvetica"/>
+  
+ <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value3" 
+      android:layout_gravity="center"
+      android:textStyle="bold" />
+   
+  
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value4" 
+      android:textStyle="bold"
+      android:fontFamily="Helvetica"/> 
+    
+  <Button
+      android:id="@+id/blog"
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/blog" 
+      android:textStyle="bold" 
+      android:onClick="blogPosts"
+      android:background="@color/red" 
+      android:fontFamily="Helvetica"
+      android:textColor="@color/white1"/>  
+       
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value4" 
+      android:textStyle="bold"/> 
+    
+  <Button
+      android:id="@+id/events"
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/Events" 
+      android:textStyle="bold" 
+      android:onClick="eventNotifier"
+      android:background="@color/red"
+      android:fontFamily="Helvetica"
+      android:textColor="@color/white1"/> 
+      
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value4" 
+      android:textStyle="bold"/> 
+    
+  <!-- Button
+      android:id="@+id/eval"
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/eval" 
+      android:textStyle="bold"
+      android:background="@color/red"
+      android:fontFamily="Helvetica"
+      android:textColor="@color/white1"/-->   
+  
+  
+  </LinearLayout>

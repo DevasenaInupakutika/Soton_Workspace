@@ -1,0 +1,8 @@
+package com.example.ssitestapp;
+import java.util.*;
+
+// This class handles RSS XML.
+
+public class RSSFeed {
+
+}

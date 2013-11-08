@@ -1,0 +1,47 @@
+package com.example.ssitestapp;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.Application;
+import android.view.Menu;
+import android.widget.ListView;
+
+public class ListActivity extends Activity {
+
+	Application myApp;
+	RSSFeed feed;
+	ListView lv;
+	CustomListAdapter adapter;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.feed_list);
+		
+		myApp = getApplication();
+		 
+		// Get feed form the file
+		feed = (RSSFeed) getIntent().getExtras().get("feed");
+		 
+		// Initialise the variables:
+		lv = (ListView) findViewById(R.id.listView);
+		lv.setVerticalFadingEdgeEnabled(true);
+		 
+		// Set an Adapter to the ListView
+		adapter = new CustomListAdapter(this);
+		lv.setAdapter(adapter);
+		
+		//Setting onItem click listener.
+		lv.setOnItemClickListener()
+		
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.list, menu);
+		return true;
+	}
+
+}

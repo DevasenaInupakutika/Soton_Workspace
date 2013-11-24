@@ -1,6 +1,6 @@
 com.android.ide.eclipse.adt.fixLegacyEditors=1
 com.android.ide.eclipse.adt.monitorDensity=123.0
-com.android.ide.eclipse.adt.sdk=/home/ssi_ubuntu/adt-bundle-linux-x86_64-20130917/sdk
+com.android.ide.eclipse.adt.sdk=/Users/user/Desktop/Disk Image New Installs/adt-bundle-mac-x86_64-20131030/sdk
 com.android.ide.eclipse.adt.xmlEditor=true
 design.structure.flyout.width=183
 eclipse.preferences.version=1

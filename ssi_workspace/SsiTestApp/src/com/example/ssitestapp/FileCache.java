@@ -1,11 +1,13 @@
 package com.example.ssitestapp;
 
+
 import java.io.File;
 import android.content.Context;
+import android.util.Log;
 
 public class FileCache {
-
-private File cacheDir;
+    
+    private File cacheDir;
     
     public FileCache(Context context){
         //Find the dir to save cached images
@@ -22,7 +24,10 @@ private File cacheDir;
         String filename=String.valueOf(url.hashCode());
         //Another possible solution (thanks to grantland)
         //String filename = URLEncoder.encode(url);
+        Log.v(filename,"Image File name is:");
         File f = new File(cacheDir, filename);
+        
+        //final File f = new File(this.cacheDir, filename);
         return f;
         
     }
@@ -34,6 +39,5 @@ private File cacheDir;
         for(File f:files)
             f.delete();
     }
-
 
 }

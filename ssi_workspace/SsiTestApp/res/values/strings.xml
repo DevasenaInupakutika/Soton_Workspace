@@ -11,6 +11,7 @@
     <string name="blog"><b>Blog</b></string>
     <string name="Events"><b>Events</b></string>
     <string name="eval">Online Software Evaluation</string>
+    <string name="desc">Description goes here!</string>
 
     <style name="AppTheme" parent="Theme.DeviceDefault.Light"></style>
 
@@ -26,6 +27,6 @@
     <string name="title">null</string>
     <string name="date">date</string>
     <string name="loading">Loading please wait ...</string>
-    <string name="title_activity_list">Blogs Feed</string>
+    <string name="title_activity_list"><b>Software and Research Blog</b></string>
 
 </resources>

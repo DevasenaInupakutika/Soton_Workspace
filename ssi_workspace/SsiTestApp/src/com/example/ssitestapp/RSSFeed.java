@@ -10,20 +10,20 @@ public class RSSFeed implements Serializable{
 	private List<RSSItem> _itemlist;
 	 
 	RSSFeed() {
-	_itemlist = new Vector<RSSItem>(0);
+			_itemlist = new Vector<RSSItem>(0);
 	}
 	 
 	void addItem(RSSItem item) {
-	_itemlist.add(item);
-	_itemcount++;
+			_itemlist.add(item);
+			_itemcount++;
 	}
 	 
 	public RSSItem getItem(int location) {
-	return (RSSItem) _itemlist.get(location);
+	       return _itemlist.get(location);
 	}
 	 
 	public int getItemCount() {
-	return _itemcount;
+	       return _itemcount;
 	}
 	
 

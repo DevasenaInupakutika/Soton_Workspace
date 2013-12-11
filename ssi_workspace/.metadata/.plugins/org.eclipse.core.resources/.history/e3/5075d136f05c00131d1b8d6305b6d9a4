@@ -10,27 +10,6 @@ import com.google.analytics.tracking.android.EasyTracker;
 
 public class MainActivity extends Activity {
 
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onStart()
-	 */
-	@Override
-	protected void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this); 
-	}
-
-
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onStop()
-	 */
-	@Override
-	protected void onStop() {
-		// TODO Auto-generated method stub
-		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);  
-	}
-
 	Button eventsButton,blogButton,evalButton;
 	public final static String EXTRA_MESSAGE = "com.example.ssitestapp.MESSAGE";
 		
@@ -43,7 +22,6 @@ public class MainActivity extends Activity {
      
      
     }
-	
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

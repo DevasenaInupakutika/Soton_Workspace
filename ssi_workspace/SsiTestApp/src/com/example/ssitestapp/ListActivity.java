@@ -65,7 +65,7 @@ public class ListActivity extends Activity {
 		
 		myApp = getApplication();
 		 
-		// Get feed form the file
+		// Get feed from the file
 		feed = (RSSFeed) getIntent().getExtras().get("feed");
 		 
 		// Initialise the variables:
@@ -111,11 +111,11 @@ public class ListActivity extends Activity {
 	}
 
   // @Override
-	/*protected void onDestroy() {
+    protected void onDestroy() {
 		super.onDestroy();
 		adapter.imageLoader.clearCache();
 		adapter.notifyDataSetChanged();
-		}*/
+		}
 	
 	class CustomListAdapter extends BaseAdapter{
 

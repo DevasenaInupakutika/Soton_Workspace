@@ -83,13 +83,14 @@
         </activity>
         <activity android:name=".DetailActivity" 
                   android:label=" "
-                  android:parentActivityName="com.example.ssitestapp.ListActivity">
-                  <meta-data 
-                      android:name="android.support.PARENT_ACTIVITY"
-                      android:value="com.example.ssitestapp.ListActivity"/>
+                  android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
+                <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.DisplayBlogsList" />
+                  
                   <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 
             </intent-filter>
                   

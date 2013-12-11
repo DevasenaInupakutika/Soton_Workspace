@@ -28,7 +28,6 @@ public class MainActivity extends Activity {
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);  
 	}
 
 	Button eventsButton,blogButton,evalButton;

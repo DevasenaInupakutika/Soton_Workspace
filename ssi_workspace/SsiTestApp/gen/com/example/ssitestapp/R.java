@@ -27,6 +27,7 @@ public final class R {
         public static final int orange4=0x7f060005;
         public static final int orange5=0x7f060006;
         public static final int red=0x7f060002;
+        public static final int ssicolor=0x7f06000c;
         public static final int white1=0x7f06000a;
         public static final int white2=0x7f06000b;
         public static final int yellow1=0x7f060003;
@@ -50,9 +51,11 @@ public final class R {
         public static final int ssi=0x7f020004;
         public static final int ssi_img=0x7f020005;
         public static final int ssi_logo=0x7f020006;
-        public static final int stub=0x7f020007;
-        public static final int wait=0x7f020008;
-        public static final int wait2=0x7f020009;
+        public static final int ssiappicon=0x7f020007;
+        public static final int ssiappiconm=0x7f020008;
+        public static final int stub=0x7f020009;
+        public static final int wait=0x7f02000a;
+        public static final int wait2=0x7f02000b;
     }
     public static final class id {
         public static final int action_settings=0x7f0a000d;

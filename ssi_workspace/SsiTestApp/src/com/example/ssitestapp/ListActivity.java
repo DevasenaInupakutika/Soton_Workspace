@@ -14,12 +14,15 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -57,6 +60,7 @@ public class ListActivity extends Activity {
 	ListView lv = null;
 	CustomListAdapter adapter = null;
 	
+	
 	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,36 @@ public class ListActivity extends Activity {
 		adapter = new CustomListAdapter(this);
 		lv.setAdapter(adapter);
 		
+		//Endless Scrolling list.
+		
+		lv.setOnScrollListener(new OnScrollListener() {
+
+			boolean flag_loading = true;
+	        public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+
+	        }
+
+	        public void onScroll(AbsListView view, int firstVisibleItem,
+	                int visibleItemCount, int totalItemCount) {
+
+	            if(firstVisibleItem+visibleItemCount == totalItemCount && totalItemCount!=0)
+	            {
+	                if(flag_loading == false)
+	                {
+	                    flag_loading = true;
+	                    additems();
+	                }
+	            }
+	        }
+
+			private void additems() {
+				// TODO Auto-generated method stub
+				lv.setAdapter(adapter);
+				flag_loading = false;
+				adapter.notifyDataSetChanged();
+			}
+	    });
 		//Setting onItem click listener to list view.
 				lv.setOnItemClickListener(new OnItemClickListener(){
 					
@@ -158,8 +192,7 @@ public class ListActivity extends Activity {
 				if (listItem == null) {
 				          listItem = layoutInflater.inflate(R.layout.list_item, null);
 				}
-				 
-				// Initialise the views in the layout
+				 // Initialise the views in the layout
 				ImageView iv = (ImageView) listItem.findViewById(R.id.thumb);
 				TextView tvTitle = (TextView) listItem.findViewById(R.id.title);
 				TextView tvDate = (TextView) listItem.findViewById(R.id.date);
@@ -168,7 +201,7 @@ public class ListActivity extends Activity {
 				imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
 				tvTitle.setText(feed.getItem(pos).getTitle());
 				tvDate.setText(feed.getItem(pos).getDate());
-				 
+				
 				return listItem;
 			
 		}

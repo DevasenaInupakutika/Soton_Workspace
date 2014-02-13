@@ -7,8 +7,8 @@
 	<section name="DialogBounds_OverrideMethodDialog">
 		<item value="523" key="DIALOG_WIDTH"/>
 		<item value="313" key="DIALOG_Y_ORIGIN"/>
-		<item value="410" key="DIALOG_HEIGHT"/>
 		<item value="698" key="DIALOG_X_ORIGIN"/>
+		<item value="410" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="OverrideMethodDialog">
@@ -20,15 +20,15 @@
 	<section name="DialogBounds_SuperInterfaceSelectionDialog">
 		<item value="356" key="DIALOG_WIDTH"/>
 		<item value="18" key="DIALOG_Y_ORIGIN"/>
-		<item value="456" key="DIALOG_HEIGHT"/>
 		<item value="90" key="DIALOG_X_ORIGIN"/>
+		<item value="456" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="SourceActionDialog.methods">
-		<item value="true" key="Comments"/>
 		<item value="1" key="VisibilityModifier"/>
+		<item value="true" key="Comments"/>
 		<item value="0" key="InsertPosition.v2"/>
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="false" key="FinalModifier"/>
@@ -43,8 +43,8 @@
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="-83" key="DIALOG_Y_ORIGIN"/>
-			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="6" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		</section>
 	</section>
@@ -61,7 +61,7 @@
 	</section>
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>
-		<item value="false" key="create_unimplemented"/>
 		<item value="false" key="create_main"/>
+		<item value="false" key="create_unimplemented"/>
 	</section>
 </section>

@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="RSSFEEDURL" key="selection"/>
 		<list key="findhistory">
-			<item value="web"/>
-			<item value="finish"/>
-			<item value="app_name"/>
-			<item value="app"/>
-			<item value="arrow"/>
-			<item value="Create"/>
-			<item value="ImageLoader"/>
-			<item value="stub_id"/>
+			<item value="RSSFEEDURL"/>
+			<item value="  feed"/>
+			<item value=" feed)"/>
+			<item value="RSSFeedURL"/>
+			<item value="feed"/>
+			<item value="listView"/>
+			<item value="_item"/>
+			<item value="item"/>
 		</list>
 		<list key="replacehistory">
 		</list>

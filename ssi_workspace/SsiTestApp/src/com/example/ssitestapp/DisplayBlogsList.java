@@ -40,9 +40,8 @@ public class DisplayBlogsList extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss";
+	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
 	RSSFeed feed;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

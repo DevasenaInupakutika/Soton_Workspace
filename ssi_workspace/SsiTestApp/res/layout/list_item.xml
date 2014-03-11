@@ -6,8 +6,10 @@
     
     <ImageView
 	android:id="@+id/thumb"
-	android:layout_width="60dp"
-	android:layout_height="60dp"
+	      android:layout_width="60dp"
+          android:layout_height="60dp"
+          android:layout_alignParentLeft="true"
+          android:layout_centerVertical="true"
 	android:contentDescription="@string/title"/>
  
 	<RelativeLayout
@@ -40,7 +42,7 @@
 	android:padding="2dp"
 	android:text="@string/date"
 	android:textColor="#7F7F7F"
-	android:textSize="12sp" />
+	android:textSize="14sp" />
 	</RelativeLayout>
  
 	<ImageView

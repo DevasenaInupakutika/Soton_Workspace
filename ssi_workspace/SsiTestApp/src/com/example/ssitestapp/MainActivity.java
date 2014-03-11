@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 		EasyTracker.getInstance(this).activityStop(this);  
 	}
 
-	Button eventsButton,blogButton,evalButton;
+	Button eventsButton,blogButton,testButton;
 	public final static String EXTRA_MESSAGE = "com.example.ssitestapp.MESSAGE";
 		
 	@Override
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         eventsButton = (Button) findViewById(R.id.events);   
         blogButton = (Button) findViewById(R.id.blog);
-     
+        //testButton = (Button) findViewById(R.id.tb);
      
     }
 	
@@ -57,7 +57,6 @@ public class MainActivity extends Activity {
     	Intent eventspage=new Intent(this,DisplayEventsList.class);
 		startActivity(eventspage);
 		
-		
     }
     
     public void blogPosts(View v){
@@ -66,6 +65,11 @@ public class MainActivity extends Activity {
     	startActivity(blogspage);
     }
     
-    
+    public void testBlogNotifier(View v){
+    	
+    	Intent refreshpage=new Intent(this,PullToRefreshActivity.class);
+		startActivity(refreshpage);
+    	
+    }
     
 }

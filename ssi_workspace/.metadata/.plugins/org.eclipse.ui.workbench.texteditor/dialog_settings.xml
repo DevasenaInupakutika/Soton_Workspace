@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="RSSFEEDURL" key="selection"/>
+		<item value="SINGLE" key="selection"/>
 		<list key="findhistory">
+			<item value="single"/>
+			<item value="URL"/>
+			<item value="Async"/>
+			<item value="page"/>
 			<item value="RSSFEEDURL"/>
 			<item value="  feed"/>
 			<item value=" feed)"/>
 			<item value="RSSFeedURL"/>
-			<item value="feed"/>
-			<item value="listView"/>
-			<item value="_item"/>
-			<item value="item"/>
 		</list>
 		<list key="replacehistory">
 		</list>

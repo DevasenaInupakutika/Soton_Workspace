@@ -18,9 +18,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:icon="@drawable/images"
+            android:icon="@drawable/ssiappiconm"
             android:name="com.example.ssitestapp.MainActivity"
-            android:label=" " >
+            android:label="SSI App" 
+            android:textStyle="bold" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,6 +32,7 @@
         <!-- Events Activity -->
 
         <activity
+            android:icon="@drawable/ssiappiconm"
             android:name="com.example.ssitestapp.DisplayEventsList"
             android:layout_gravity="center"
             android:label="@string/title_activity_display_events_list"
@@ -43,10 +45,29 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- PullToRefresh Activity -->
+        
+        <activity
+            android:name=".PullToRefreshActivity"
+            android:layout_gravity="center"
+            android:label="@string/app_name"
+            android:textStyle="bold" 
+            android:parentActivityName="com.example.ssitestapp.MainActivity">
+           
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
 
         <!-- Splash activity page for Blog RSS feed and Activity -->
 

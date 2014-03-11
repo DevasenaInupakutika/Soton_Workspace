@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
-<fullyQualifiedTypeName name="org.jsoup.nodes.Node"/>
-<fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
-<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
-<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
-<fullyQualifiedTypeName name="org.w3c.dom.Document"/>
 <fullyQualifiedTypeName name="org.xml.sax.InputSource"/>
 <fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 <fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
 <fullyQualifiedTypeName name="android.net.ConnectivityManager"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog"/>
-<fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
@@ -33,7 +25,6 @@
 <fullyQualifiedTypeName name="android.webkit.WebSettings.LayoutAlgorithm"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="com.example.ssitestapp.R.layout"/>
 <fullyQualifiedTypeName name="android.app.Application"/>
 <fullyQualifiedTypeName name="adapter.imageLoader"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -43,7 +34,6 @@
 <fullyQualifiedTypeName name="org.xmlpull.v1.XmlPullParser"/>
 <fullyQualifiedTypeName name="org.xmlpull.v1.XmlPullParserFactory"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
-<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="android.app.ListActivity"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.net.Uri"/>
@@ -60,4 +50,14 @@
 <fullyQualifiedTypeName name="android.webkit.WebViewClient"/>
 <fullyQualifiedTypeName name="android.widget.AbsListView.OnScrollListener"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.app.DownloadManager.Request"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
+<fullyQualifiedTypeName name="com.example.ssitestapp.R.layout"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.layout"/>
+<fullyQualifiedTypeName name="com.example.ssitestapp.PullToRefreshListView.OnRefreshListener"/>
+<fullyQualifiedTypeName name="com.example.ssitestapp.R.id"/>
 </qualifiedTypeNameHistroy>

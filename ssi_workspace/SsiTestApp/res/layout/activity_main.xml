@@ -28,7 +28,7 @@
       android:textStyle="bold" />
    
   
-  <TextView
+ <TextView
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:text="@string/text_value4" 
@@ -72,6 +72,26 @@
       android:text="@string/text_value4" 
       android:textStyle="bold"/> 
     
+  <!-- Test Command Button -->
+  
+  <!-- <Button
+      android:id="@+id/tb"
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/TestButton" 
+      android:textStyle="bold" 
+      android:onClick="testBlogNotifier"
+      android:background="@color/ssicolor"
+      android:textColor="@color/white1" 
+      android:fontFamily="Helvetica"/> -->
+      
+      
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/text_value5" 
+      android:textStyle="bold"/> 
   <!-- Button
       android:id="@+id/eval"
       android:layout_width="300dp"

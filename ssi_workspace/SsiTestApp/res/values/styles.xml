@@ -16,5 +16,10 @@
     <style name="AppTheme" parent="android:Theme.DeviceDefault.Light">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="CustomTheme" parent="android:Theme.Light.NoTitleBar.Fullscreen">
+               <item name="android:windowBackground">@color/ssicolor</item>
+               <item name="android:colorBackground">@color/ssicolor</item>
+            </style>
 
 </resources>

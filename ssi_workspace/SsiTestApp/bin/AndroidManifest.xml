@@ -75,8 +75,9 @@
             android:name="com.example.ssitestapp.DisplayBlogsList"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" 
+            android:theme="@style/CustomTheme"
             android:parentActivityName="com.example.ssitestapp.MainActivity">
+            
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ssitestapp.MainActivity" />

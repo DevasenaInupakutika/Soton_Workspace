@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -65,7 +67,20 @@ public class ListActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.feed_list);
-	   
+	    
+	    //ActionBar bar = getActionBar();
+	    //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#D2232A")));
+	    
+	    /*View titleView = getWindow().findViewById(R.string.title_activity_display_blogs_list);
+	    if(titleView != null){
+	    	ViewParent parent = titleView.getParent();
+	    	if(parent!=null && (parent instanceof View)){
+	    		View parentView = (View)parent;
+	    		parentView.setBackgroundColor(color.ssicolor);
+	    	}
+	    	
+	    }*/
+	    
 		// Get feed from the file
 		feed = (RSSFeed) getIntent().getExtras().get("feed");
 		// Initialise the variables:

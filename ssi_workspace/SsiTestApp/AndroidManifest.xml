@@ -4,8 +4,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
 
     <!-- Internet Permissions -->
 
@@ -14,12 +14,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     
     <application
+            android:icon="@drawable/ssiappicon"
+            android:allowBackup="true">
         
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
         <activity
             android:icon="@drawable/ssiappiconm"
             android:name="com.example.ssitestapp.MainActivity"
+            android:theme="@style/AppTheme"
             android:label="SSI App" 
             android:textStyle="bold" >
             <intent-filter>
@@ -34,6 +35,7 @@
         <activity
             android:icon="@drawable/ssiappiconm"
             android:name="com.example.ssitestapp.DisplayEventsList"
+            android:theme="@style/AppTheme"
             android:layout_gravity="center"
             android:label="@string/title_activity_display_events_list"
             android:textStyle="bold" 
@@ -51,7 +53,7 @@
         
         <!-- PullToRefresh Activity -->
         
-        <activity
+        <!--  activity
             android:name=".PullToRefreshActivity"
             android:layout_gravity="center"
             android:label="@string/app_name"
@@ -66,7 +68,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>-->
         
 
         <!-- Splash activity page for Blog RSS feed and Activity -->
@@ -88,40 +90,50 @@
                 
             </intent-filter>
         </activity>
+
+        <!--  List View Activity with list of Blogs on SSI Website -->
         
         <activity
-            android:icon="@drawable/ssiappicon"
+            
             android:name=".ListActivity"
-            android:label="@string/title_activity_list"
-            android:parentActivityName="com.example.ssitestapp.MainActivity">
+            android:icon="@drawable/ssiappicon"
+            android:theme="@style/ListTheme"
+            android:label="@string/title_activity_list" android:textColor="@color/white1" android:background="@color/ssicolor"
+            android:layout_gravity="center"
+            
+            android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ssitestapp.MainActivity" />
+                android:value="com.example.ssitestapp.DisplayBlogsList" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 
             </intent-filter>
-
             
         </activity>
+        
+        <!--  Detailed view of Blogs List view --> 
+        
         <activity 
                   android:icon="@drawable/ssiappicon"
                   android:name=".DetailActivity" 
+                  android:theme="@style/ListTheme"
                   android:label=" "
-                  android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
-                <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ssitestapp.DisplayBlogsList" />
+                  android:parentActivityName="com.example.ssitestapp.ListActivity">
+                  <meta-data
+                	android:name="android.support.PARENT_ACTIVITY"
+                	android:value="com.example.ssitestapp.ListActivity" />
                   
                   <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                		<action android:name="android.intent.action.MAIN" />
+                		<category android:name="android.intent.category.LAUNCHER" />
                 
-            </intent-filter>
+            	  </intent-filter>
                   
 
          </activity>
+    
     </application>
 
 </manifest>

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.xml.sax.InputSource"/>
-<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
-<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
-<fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
-<fullyQualifiedTypeName name="android.net.ConnectivityManager"/>
-<fullyQualifiedTypeName name="android.app.AlertDialog"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
@@ -56,8 +50,14 @@
 <fullyQualifiedTypeName name="com.example.ssitestapp.R.layout"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="com.example.ssitestapp.PullToRefreshListView.OnRefreshListener"/>
 <fullyQualifiedTypeName name="com.example.ssitestapp.R.id"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.view.ViewParent"/>
+<fullyQualifiedTypeName name="com.example.ssitestapp.R.color"/>
+<fullyQualifiedTypeName name="android.R.id"/>
+<fullyQualifiedTypeName name="com.example.ssitestapp.R.string"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.ColorDrawable"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
 </qualifiedTypeNameHistroy>

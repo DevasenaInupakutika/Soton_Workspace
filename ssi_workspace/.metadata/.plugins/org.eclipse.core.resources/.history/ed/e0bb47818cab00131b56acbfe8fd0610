@@ -1,0 +1,132 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ssitestapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <!-- Internet Permissions -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
+    <application
+            android:icon="@drawable/ssiappicon"
+            android:allowBackup="true">
+        
+        <activity
+            android:icon="@drawable/ssiappiconm"
+            android:name="com.example.ssitestapp.MainActivity"
+            android:theme="AppTheme"
+            android:label="SSI App" 
+            android:textStyle="bold" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Events Activity -->
+
+        <activity
+            android:icon="@drawable/ssiappiconm"
+            android:name="com.example.ssitestapp.DisplayEventsList"
+            android:theme="@style/AppTheme"
+            android:layout_gravity="center"
+            android:label="@string/title_activity_display_events_list"
+            android:textStyle="bold" 
+            android:parentActivityName="com.example.ssitestapp.MainActivity">
+           
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- PullToRefresh Activity -->
+        
+        <activity
+            android:name=".PullToRefreshActivity"
+            android:layout_gravity="center"
+            android:label="@string/app_name"
+            android:textStyle="bold" 
+            android:parentActivityName="com.example.ssitestapp.MainActivity">
+           
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+
+        <!-- Splash activity page for Blog RSS feed and Activity -->
+
+        <activity
+            android:name="com.example.ssitestapp.DisplayBlogsList"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:theme="@style/CustomTheme"
+            android:parentActivityName="com.example.ssitestapp.MainActivity">
+            
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:icon="@drawable/ssiappicon"
+            android:name=".ListActivity"
+            android:label="@string/title_activity_list" android:background="@color/ssicolor" android:textColor="@color/white1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:theme="@style/ListTheme"
+            android:parentActivityName="com.example.ssitestapp.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.MainActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+
+            
+        </activity>
+        <activity 
+                  android:icon="@drawable/ssiappicon"
+                  android:name=".DetailActivity" 
+                  android:label=" "
+                  android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
+                <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.DisplayBlogsList" />
+                  
+                  <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+                  
+
+         </activity>
+    </application>
+
+</manifest>

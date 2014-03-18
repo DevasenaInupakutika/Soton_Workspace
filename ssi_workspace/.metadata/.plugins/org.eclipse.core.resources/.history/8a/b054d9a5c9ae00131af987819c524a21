@@ -217,7 +217,7 @@ public class ListActivity extends Activity {
 				// Set the views in the layout
 				imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
 				tvTitle.setText(feed.getItem(pos).getTitle());
-				tvDate.setText(feed.getItem(pos).getDate().substring(0, 16));
+				tvDate.setText(feed.getItem(pos).getDate());
 				
 				return listItem;
 			

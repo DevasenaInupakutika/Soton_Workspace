@@ -20,6 +20,8 @@
     <string name="pull_to_refresh_refreshing_label">Loading...</string>
     <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
 
+    
+
     <string name="title_activity_display_events_list"><b>Events</b></string>
     <string name="heading1">Upcoming events</string>
     <string name="event1">December 3-4, 2013:  Software Carpentry boot camp at EPCC, The University of Edinburgh </string>

@@ -4,8 +4,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -42,10 +45,56 @@ public class DisplayBlogsList extends Activity {
 
 	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
 	RSSFeed feed;
+	
+	//Progress Bar functionality
+	
+	private static final int PROGRESS = 0x1;
+	private ProgressBar mProgress;
+	private int mProgressStatus = 0;
+	private Handler mHandler = new Handler();
+	private TextView textView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_blogs_list);
+	
+		mProgress = (ProgressBar) findViewById(R.id.progress_bartop);
+		textView = (TextView) findViewById(R.id.textview1);
+		
+		//Start lengthy operation in a background thread.
+		new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while(mProgressStatus < 100){
+					
+					mProgressStatus += 1;
+					
+					//Update Progress Bar
+					mHandler.post(new Runnable(){
+						public void run(){
+							mProgress.setProgress(mProgressStatus);
+							textView.setText(mProgressStatus+"/"+mProgress.getMax());
+							
+						}
+						
+					});
+					try{
+						Thread.sleep(1000);
+					}
+					catch (InterruptedException e){
+						e.printStackTrace();
+					}
+					
+				}
+				
+			}
+			
+			
+		}).start();
+		
 		
 		ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();

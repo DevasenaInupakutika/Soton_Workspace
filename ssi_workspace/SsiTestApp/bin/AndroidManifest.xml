@@ -21,7 +21,7 @@
             android:icon="@drawable/ssiappiconm"
             android:name="com.example.ssitestapp.MainActivity"
             android:theme="@style/AppTheme"
-            android:label="SSI App" 
+            android:label="Software and Research" 
             android:textStyle="bold" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,7 @@
 
         <!-- Events Activity -->
 
-        <activity
+        <!--  <activity
             android:icon="@drawable/ssiappiconm"
             android:name="com.example.ssitestapp.DisplayEventsList"
             android:theme="@style/AppTheme"
@@ -49,7 +49,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> -->
         
         <!-- PullToRefresh Activity -->
         
@@ -96,15 +96,15 @@
         <activity
             
             android:name=".ListActivity"
-            android:icon="@drawable/ssiappicon"
+            android:icon="@drawable/ssiapplist"
             android:theme="@style/ListTheme"
             android:label="@string/title_activity_list" android:textColor="@color/white1" android:background="@color/ssicolor"
             android:layout_gravity="center"
             
-            android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
+            android:parentActivityName="com.example.ssitestapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ssitestapp.DisplayBlogsList" />
+                android:value="com.example.ssitestapp.MainActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -116,14 +116,14 @@
         <!--  Detailed view of Blogs List view --> 
         
         <activity 
-                  android:icon="@drawable/ssiappicon"
+                  android:icon="@drawable/ssiapplist"
                   android:name=".DetailActivity" 
                   android:theme="@style/ListTheme"
                   android:label=" "
-                  android:parentActivityName="com.example.ssitestapp.ListActivity">
+                  android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
                   <meta-data
                 	android:name="android.support.PARENT_ACTIVITY"
-                	android:value="com.example.ssitestapp.ListActivity" />
+                	android:value="com.example.ssitestapp.DisplayBlogsList" />
                   
                   <intent-filter>
                 		<action android:name="android.intent.action.MAIN" />

@@ -37,9 +37,12 @@ public class MainActivity extends Activity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        eventsButton = (Button) findViewById(R.id.events);   
-        blogButton = (Button) findViewById(R.id.blog);
+        //setContentView(R.layout.activity_main);
+        Intent blogspage=new Intent(this,DisplayBlogsList.class);
+    	startActivity(blogspage);
+       
+       // eventsButton = (Button) findViewById(R.id.events);   
+        //blogButton = (Button) findViewById(R.id.blog);
         //testButton = (Button) findViewById(R.id.tb);
      
     }
@@ -52,7 +55,7 @@ public class MainActivity extends Activity {
         return true;
     }
     
-    public void eventNotifier(View v){
+  /*  public void eventNotifier(View v){
     	
     	Intent eventspage=new Intent(this,DisplayEventsList.class);
 		startActivity(eventspage);
@@ -70,6 +73,6 @@ public class MainActivity extends Activity {
     	Intent refreshpage=new Intent(this,PullToRefreshActivity.class);
 		startActivity(refreshpage);
     	
-    }
+    }*/
     
 }

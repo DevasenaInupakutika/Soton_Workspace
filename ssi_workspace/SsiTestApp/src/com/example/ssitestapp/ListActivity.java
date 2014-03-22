@@ -23,6 +23,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -44,7 +45,13 @@ public class ListActivity extends Activity {
 			//
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
-			NavUtils.navigateUpFromSameTask(this);
+			//NavUtils.navigateUpFromSameTask(this);
+			switch(item.getItemId())
+			{
+			case android.R.id.home:
+				Toast.makeText(getApplicationContext(), "Back button clicked", Toast.LENGTH_SHORT).show();
+				super.onBackPressed();
+			}
 			return true;
 		}
 		//return true;

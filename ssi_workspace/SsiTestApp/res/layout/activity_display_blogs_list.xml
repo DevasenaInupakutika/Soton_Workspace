@@ -5,22 +5,34 @@
     <ProgressBar
         android:id="@+id/progress_bartop"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="wrap_content"
+        
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="23dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="23dp"
         android:indeterminate="false"
         android:max="100"
-        android:progress="1" />
+        android:progress="1"> 
+     
+       </ProgressBar>  
+       <!--  android:progressDrawable="@drawable/splashprogressbar"-->
+        
     
     <TextView 
         android:id="@+id/textview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/progress_bartop"
-        android:layout_below="@+id/progress_bartop"/>
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/progress_bartop"
+        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:textColor="#FFFFFF"
+        android:fontFamily="Helvetica"
+        />
     
     <ImageView
 		android:id="@+id/imageView"

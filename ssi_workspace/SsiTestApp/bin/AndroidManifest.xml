@@ -16,12 +16,13 @@
     <application
             android:icon="@drawable/ssiappicon"
             android:allowBackup="true">
-        
+   
+     
         <activity
-            android:icon="@drawable/ssiappiconm"
+            android:icon="@drawable/ssiappiconm" 
             android:name="com.example.ssitestapp.MainActivity"
-            android:theme="@style/AppTheme"
-            android:label="Software and Research" 
+            android:theme="@style/MainActivityTheme"
+            android:label="@string/app_name" 
             android:textStyle="bold" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

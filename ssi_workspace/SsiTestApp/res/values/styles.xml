@@ -22,6 +22,19 @@
                <item name="android:colorBackground">#D2232A</item>
             </style>
             
+    <style name="MainActivityTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowBackground">@color/ssicolor</item>
+        <item name="android:colorBackground">#D2232A</item>
+        <item name="android:actionBarStyle">@style/WindowTitleBgMain</item>
+       </style>  
+     
+    <style name="WindowTitleBgMain" parent="@android:style/Widget.Holo.Light.ActionBar"> 
+           <item name="android:background">@color/ssicolor</item>
+           <item name="android:textColor">#fff</item>
+           <item name="android:titleTextStyle">@style/SSITextAppearance</item>
+           <item name="android:gravity">center</item>
+       </style> 
+ 		
     
     <style name="WindowTitleBackground" parent="@android:style/Widget.Holo.Light.ActionBar"> 
            <item name="android:background">@color/ssicolor</item>
@@ -39,5 +52,5 @@
  	    <item name="android:gravity">center</item>
     </style> 		
  	
-
+    
 </resources>

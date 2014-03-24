@@ -49,7 +49,7 @@ public class ListActivity extends Activity {
 			switch(item.getItemId())
 			{
 			case android.R.id.home:
-				Toast.makeText(getApplicationContext(), "Back button clicked", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 				super.onBackPressed();
 			}
 			return true;

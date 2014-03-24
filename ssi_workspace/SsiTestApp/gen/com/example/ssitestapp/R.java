@@ -63,27 +63,25 @@ public final class R {
         public static final int wait2=0x7f020010;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0014;
-        public static final int arrow=0x7f0a000d;
-        public static final int blog=0x7f0a0006;
-        public static final int date=0x7f0a000e;
-        public static final int desc=0x7f0a000a;
-        public static final int events=0x7f0a0007;
+        public static final int action_settings=0x7f0a0012;
+        public static final int arrow=0x7f0a000b;
+        public static final int date=0x7f0a000c;
+        public static final int desc=0x7f0a0008;
         public static final int imageView=0x7f0a0002;
         public static final int linearLayout1=0x7f0a0003;
-        public static final int listView=0x7f0a000b;
+        public static final int listView=0x7f0a0009;
         public static final int progressBar=0x7f0a0004;
         public static final int progress_bartop=0x7f0a0000;
-        public static final int pull_to_refresh_header=0x7f0a000f;
-        public static final int pull_to_refresh_image=0x7f0a0011;
-        public static final int pull_to_refresh_progress=0x7f0a0010;
-        public static final int pull_to_refresh_text=0x7f0a0012;
-        public static final int pull_to_refresh_updated_at=0x7f0a0013;
-        public static final int sv=0x7f0a0009;
+        public static final int pull_to_refresh_header=0x7f0a000d;
+        public static final int pull_to_refresh_image=0x7f0a000f;
+        public static final int pull_to_refresh_progress=0x7f0a000e;
+        public static final int pull_to_refresh_text=0x7f0a0010;
+        public static final int pull_to_refresh_updated_at=0x7f0a0011;
+        public static final int sv=0x7f0a0007;
         public static final int textView=0x7f0a0005;
         public static final int textview1=0x7f0a0001;
-        public static final int thumb=0x7f0a000c;
-        public static final int title=0x7f0a0008;
+        public static final int thumb=0x7f0a000a;
+        public static final int title=0x7f0a0006;
     }
     public static final class layout {
         public static final int activity_display_blogs_list=0x7f030000;
@@ -151,7 +149,7 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080005;
+        public static final int AppBaseTheme=0x7f080007;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -168,8 +166,10 @@ public final class R {
          */
         public static final int AppTheme=0x7f080000;
         public static final int CustomTheme=0x7f080001;
-        public static final int ListTheme=0x7f080003;
-        public static final int SSITextAppearance=0x7f080004;
-        public static final int WindowTitleBackground=0x7f080002;
+        public static final int ListTheme=0x7f080005;
+        public static final int MainActivityTheme=0x7f080002;
+        public static final int SSITextAppearance=0x7f080006;
+        public static final int WindowTitleBackground=0x7f080004;
+        public static final int WindowTitleBgMain=0x7f080003;
     }
 }

@@ -76,7 +76,7 @@ public class DisplayBlogsList extends Activity {
 					mHandler.post(new Runnable(){
 						public void run(){
 							mProgress.setProgress(mProgressStatus);
-							textView.setText(mProgressStatus+"%");
+							textView.setText(mProgressStatus+"/"+mProgress.getMax());
 							
 						}
 						

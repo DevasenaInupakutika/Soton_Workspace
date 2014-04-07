@@ -16,7 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 public class DisplayBlogsList extends Activity {
-	
+
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
 	 */
@@ -36,7 +36,7 @@ public class DisplayBlogsList extends Activity {
 			return true;
 		}
 		//return true;
-		
+
 		//Intent that will return to previous activity.
 		Intent myIntent = new Intent(getApplicationContext(),MainActivity.class );
 	    startActivityForResult(myIntent, 0);
@@ -45,23 +45,23 @@ public class DisplayBlogsList extends Activity {
 
 	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
 	RSSFeed feed;
-	
+
 	//Progress Bar functionality
-	
+
 	private static final int PROGRESS = 0x1;
 	private ProgressBar mProgress;
 	private int mProgressStatus = 0;
 	private Handler mHandler = new Handler();
 	private TextView textView;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_blogs_list);
-	
+
 		mProgress = (ProgressBar) findViewById(R.id.progress_bartop);
 		textView = (TextView) findViewById(R.id.textview1);
-		
+
 		//Start lengthy operation in a background thread.
 		new Thread(new Runnable(){
 
@@ -69,17 +69,17 @@ public class DisplayBlogsList extends Activity {
 			public void run() {
 				// TODO Auto-generated method stub
 				while(mProgressStatus < 100){
-					
+
 					mProgressStatus += 1;
-					
+
 					//Update Progress Bar
 					mHandler.post(new Runnable(){
 						public void run(){
 							mProgress.setProgress(mProgressStatus);
 							textView.setText(mProgressStatus+"%");
-							
+
 						}
-						
+
 					});
 					try{
 						Thread.sleep(1000);
@@ -87,15 +87,15 @@ public class DisplayBlogsList extends Activity {
 					catch (InterruptedException e){
 						e.printStackTrace();
 					}
-					
+
 				}
-				
+
 			}
-			
-			
+
+
 		}).start();
-		
-		
+
+
 		ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
 		boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
@@ -126,7 +126,7 @@ public class DisplayBlogsList extends Activity {
         new AsyncLoadXMLFeed().execute();
         }
 	}
-	
+
 	private class AsyncLoadXMLFeed extends AsyncTask<Void, Void, Void>{
 
 
@@ -138,25 +138,25 @@ public class DisplayBlogsList extends Activity {
 			feed = myParser.parseXml(RSSFEEDURL);
 			return null;
 		}	
-		
+
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
-			
+
 			Bundle bundle = new Bundle();
 			bundle.putSerializable("feed", feed);
-			
+
 			//Launch ListActivity
 			Intent intent = new Intent(DisplayBlogsList.this,ListActivity.class);
 			intent.putExtras(bundle);
 			startActivity(intent);
-			
+
 			//Kill this activity.
 			finish();
 			}
 
 	}
-	
-	
+
+
 }

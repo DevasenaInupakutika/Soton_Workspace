@@ -19,7 +19,7 @@
    
      
         <activity
-            android:icon="@drawable/ssiappiconm" 
+            android:icon="@drawable/ssiappicon2" 
             android:name="com.example.ssitestapp.MainActivity"
             android:theme="@style/MainActivityTheme"
             android:label="@string/app_name" 
@@ -55,7 +55,7 @@
         <activity
             
             android:name=".ListActivity"
-            android:icon="@drawable/ssiapplist"
+            android:icon="@drawable/ssiappicon2"
             android:theme="@style/ListTheme"
             android:label="@string/title_activity_list" android:textColor="@color/white1" android:background="@color/ssicolor"
             android:layout_gravity="center"
@@ -73,7 +73,7 @@
         <!--  Detailed view of Blogs List view --> 
         
         <activity 
-                  android:icon="@drawable/ssiapplist"
+                  android:icon="@drawable/ssiappicon2"
                   android:name=".DetailActivity" 
                   android:theme="@style/ListTheme"
                   android:label=" "

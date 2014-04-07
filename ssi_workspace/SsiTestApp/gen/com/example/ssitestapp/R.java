@@ -55,12 +55,13 @@ public final class R {
         public static final int ssi_img=0x7f020008;
         public static final int ssi_logo=0x7f020009;
         public static final int ssiappicon=0x7f02000a;
-        public static final int ssiappiconm=0x7f02000b;
-        public static final int ssiapplist=0x7f02000c;
-        public static final int ssititlebar=0x7f02000d;
-        public static final int stub=0x7f02000e;
-        public static final int wait=0x7f02000f;
-        public static final int wait2=0x7f020010;
+        public static final int ssiappicon2=0x7f02000b;
+        public static final int ssiappiconm=0x7f02000c;
+        public static final int ssiapplist=0x7f02000d;
+        public static final int ssititlebar=0x7f02000e;
+        public static final int stub=0x7f02000f;
+        public static final int wait=0x7f020010;
+        public static final int wait2=0x7f020011;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0012;

@@ -25,6 +25,21 @@ public class DetailActivity extends Activity{
 	 */
 	
 	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		if(desc.canGoBack()){
+			desc.goBack();
+		}
+		else{
+			super.onBackPressed();
+		}
+		
+	}
+
+	/* (non-Javadoc)
 	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
 	 */
 	RSSFeed feed;
@@ -75,20 +90,21 @@ public class DetailActivity extends Activity{
 	          title = (TextView) findViewById(R.id.title);
 	          desc = (WebView) findViewById(R.id.desc);
 	 
-	// set webview properties
+	// set webview properties and enabling Javascript
 	          WebSettings ws = desc.getSettings();
-	          ws.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+	          ws.setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
 	          ws.getPluginState();
 	          ws.setPluginState(PluginState.ON);
 	          ws.setJavaScriptEnabled(true);
-	          desc.setWebViewClient(new WebViewClient());
+	          desc.setWebViewClient(new SsiAppWebViewClient());
 	          ws.setBuiltInZoomControls(true);
-	 
-	// Set the views
+	          
+	         // Set the views
 	          title.setText(feed.getItem(pos).getTitle());
 	          if(savedInstanceState == null)
 	          {
-	          desc.loadDataWithBaseURL("http://software.ac.uk/", feed.getItem(pos).getDescription(), "text/html", "UTF-8", null);
+	            desc.loadDataWithBaseURL("http://software.ac.uk", feed.getItem(pos).getDescription(), "text/html", "UTF-8", null);
+	            
 	          }
 	          ActionBar actionBar = getActionBar();
 	          actionBar.setDisplayHomeAsUpEnabled(true);
@@ -97,6 +113,7 @@ public class DetailActivity extends Activity{
 	  		  setupActionBar();
 	
 	}
+	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// TODO Auto-generated method stub

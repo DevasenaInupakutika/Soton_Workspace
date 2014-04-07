@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
@@ -74,20 +75,6 @@ public class ListActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.feed_list);
-	    
-	    //ActionBar bar = getActionBar();
-	    //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#D2232A")));
-	    
-	    /*View titleView = getWindow().findViewById(R.string.title_activity_display_blogs_list);
-	    if(titleView != null){
-	    	ViewParent parent = titleView.getParent();
-	    	if(parent!=null && (parent instanceof View)){
-	    		View parentView = (View)parent;
-	    		parentView.setBackgroundColor(color.ssicolor);
-	    	}
-	    	
-	    }*/
-	    
 		// Get feed from the file
 		feed = (RSSFeed) getIntent().getExtras().get("feed");
 		// Initialise the variables:
@@ -224,6 +211,8 @@ public class ListActivity extends Activity {
 				// Set the views in the layout
 				imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
 				tvTitle.setText(feed.getItem(pos).getTitle());
+				
+				//Including day and date.
 				tvDate.setText(feed.getItem(pos).getDate().substring(0, 16));
 				
 				return listItem;

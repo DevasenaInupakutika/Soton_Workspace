@@ -70,8 +70,14 @@ public class DOMParser {
 							String html = theString;
 							org.jsoup.nodes.Document docHtml = Jsoup
 									.parse(html);
+							
 							Elements imgEle = docHtml.select("img");
 							_item.setImage(imgEle.attr("src"));
+						}
+						
+						else if("link".equals(nodeName)){
+							
+							_item.setLink(theString);
 						}
 
 						else if ("pubDate".equals(nodeName)) {

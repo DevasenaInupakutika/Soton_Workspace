@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -214,8 +215,7 @@ public class ListActivity extends Activity {
 				
 				//Including day and date.
 				tvDate.setText(feed.getItem(pos).getDate().substring(0, 16));
-				
-				return listItem;
+			    return listItem;
 			
 		}
 	}

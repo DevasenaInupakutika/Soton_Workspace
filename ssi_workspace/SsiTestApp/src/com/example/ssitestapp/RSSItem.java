@@ -1,6 +1,7 @@
 package com.example.ssitestapp;
 
 import java.io.Serializable;
+import java.net.URL;
 
 // This handles RSS Item node in rss xml.
 
@@ -10,11 +11,17 @@ public class RSSItem implements Serializable {
 	private String _title = null;
 	private String _description = null;
 	private String _date = null;
+	private String _link = null;
 	private String _image = null;
-	 
+	
+
 	void setTitle(String title) {
 	_title = title;
 	}
+	
+	void setLink(String link) {
+		_link = link;
+		}
 	 
 	void setDescription(String description) {
 	_description = description;
@@ -27,6 +34,7 @@ public class RSSItem implements Serializable {
 	void setImage(String image) {
 	_image = image;
 	}
+	
 	 
 	public String getTitle() {
 	return _title;
@@ -42,5 +50,9 @@ public class RSSItem implements Serializable {
 	 
 	public String getImage() {
 	return _image;
+	}
+	
+	public String getLink(){
+	return _link;	
 	}
 }

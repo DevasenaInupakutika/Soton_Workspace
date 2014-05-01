@@ -1,5 +1,8 @@
 package com.example.ssitestapp;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -8,6 +11,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -45,7 +49,8 @@ public class DetailActivity extends Activity{
 	RSSFeed feed;
 	TextView title;
 	WebView desc;
-	 
+	URL _uri = null;
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
@@ -89,7 +94,15 @@ public class DetailActivity extends Activity{
 	// Initialise the views
 	          title = (TextView) findViewById(R.id.title);
 	          desc = (WebView) findViewById(R.id.desc);
-	 
+	
+	          try {
+				_uri = new URL(feed.getItem(pos).getLink());
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	          
+	          
 	// set webview properties and enabling Javascript
 	          WebSettings ws = desc.getSettings();
 	          ws.setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
@@ -98,14 +111,20 @@ public class DetailActivity extends Activity{
 	          ws.setJavaScriptEnabled(true);
 	          desc.setWebViewClient(new SsiAppWebViewClient());
 	          ws.setBuiltInZoomControls(true);
-	          
+	         
 	         // Set the views
 	          title.setText(feed.getItem(pos).getTitle());
+	         
+	          //Log.v("Blog link is:",_uri.toString());
+	         
 	          if(savedInstanceState == null)
-	          {
-	            desc.loadDataWithBaseURL("http://software.ac.uk", feed.getItem(pos).getDescription(), "text/html", "UTF-8", null);
-	            
+	          {	    
+	        	  desc.loadUrl(feed.getItem(pos).getLink());
+	        	  //desc.loadDataWithBaseURL(feed.getItem(pos).getLink(),feed.getItem(pos).getDescription(), "text/html", "UTF-8", null);
+	        	  //desc.loadData(feed.getItem(pos).getDescription(), "text/html", "UTF-8");
+	        	  
 	          }
+	
 	          ActionBar actionBar = getActionBar();
 	          actionBar.setDisplayHomeAsUpEnabled(true);
 	  		

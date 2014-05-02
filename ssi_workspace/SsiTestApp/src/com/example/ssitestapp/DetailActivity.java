@@ -2,7 +2,10 @@ package com.example.ssitestapp;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import de.l3s.boilerpipe.BoilerpipeProcessingException;
+import de.l3s.boilerpipe.extractors.ArticleExtractor;
+import de.l3s.*;
+import de.l3s.boilerpipe.*;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -49,7 +52,8 @@ public class DetailActivity extends Activity{
 	RSSFeed feed;
 	TextView title;
 	WebView desc;
-	URL _uri = null;
+	TextView testext;
+	URL url = null;
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -92,16 +96,8 @@ public class DetailActivity extends Activity{
 	          int pos = getIntent().getExtras().getInt("pos");
 	 
 	// Initialise the views
-	          title = (TextView) findViewById(R.id.title);
+	          //title = (TextView) findViewById(R.id.title);
 	          desc = (WebView) findViewById(R.id.desc);
-	
-	          try {
-				_uri = new URL(feed.getItem(pos).getLink());
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	          
 	          
 	// set webview properties and enabling Javascript
 	          WebSettings ws = desc.getSettings();
@@ -112,17 +108,30 @@ public class DetailActivity extends Activity{
 	          desc.setWebViewClient(new SsiAppWebViewClient());
 	          ws.setBuiltInZoomControls(true);
 	         
-	         // Set the views
-	          title.setText(feed.getItem(pos).getTitle());
-	         
-	          //Log.v("Blog link is:",_uri.toString());
+	 //Commented as detail activity page doesn't require title.
+	          
+	          //title.setText(feed.getItem(pos).getTitle()); 
+	          
+	         /* String text = null;
+	          try {
+				url = new URL("http://software.ac.uk/blog/2014-05-02-software-carpentry-garnet?bw");
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	          try {
+				text = ArticleExtractor.INSTANCE.getText(url);
+			} catch (BoilerpipeProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	          title.setText(text);*/
+	          
 	         
 	          if(savedInstanceState == null)
 	          {	    
-	        	  desc.loadUrl(feed.getItem(pos).getLink());
-	        	  //desc.loadDataWithBaseURL(feed.getItem(pos).getLink(),feed.getItem(pos).getDescription(), "text/html", "UTF-8", null);
-	        	  //desc.loadData(feed.getItem(pos).getDescription(), "text/html", "UTF-8");
-	        	  
+	        	 desc.loadUrl(feed.getItem(pos).getLink());
+	        	 
 	          }
 	
 	          ActionBar actionBar = getActionBar();

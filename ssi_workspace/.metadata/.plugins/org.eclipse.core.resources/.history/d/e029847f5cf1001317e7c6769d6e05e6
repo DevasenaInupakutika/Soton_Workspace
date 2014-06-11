@@ -149,13 +149,13 @@ public class ListActivity extends Activity{
 					long arg3) {
 				// actions to be performed when a list item clicked
 				int pos = arg2;
-				Bundle bundle = new Bundle();
-				bundle.putSerializable("feed", feed);
+				//Bundle bundle = new Bundle();
+				//bundle.putSerializable("feed", feed);
 				Intent intent = new Intent(ListActivity.this,DetailActivity.class);
-				//RSSItem result = blogs.get(pos);
-				//intent.putExtra("result",result);
-				intent.putExtras(bundle);
-				intent.putExtra("pos", pos);
+				RSSItem result = blogs.get(pos);
+				intent.putExtra("result",result);
+				//intent.putExtras(bundle);
+				//intent.putExtra("pos", pos);
 				//Three lines below for displaying detail blog post in mobile browser.
 				/*Intent i = new Intent(Intent.ACTION_VIEW);
 				i.setData(Uri.parse(feed.getItem(pos).getLink()));

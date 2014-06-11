@@ -151,16 +151,14 @@ public class ListActivity extends Activity{
 				int pos = arg2;
 				Bundle bundle = new Bundle();
 				bundle.putSerializable("feed", feed);
-				Intent intent = new Intent(ListActivity.this,DetailActivity.class);
-				//RSSItem result = blogs.get(pos);
-				//intent.putExtra("result",result);
-				intent.putExtras(bundle);
-				intent.putExtra("pos", pos);
+				//Intent intent = new Intent(ListActivity.this,DetailActivity.class);
+				//intent.putExtras(bundle);
+				//intent.putExtra("pos", pos);
 				//Three lines below for displaying detail blog post in mobile browser.
-				/*Intent i = new Intent(Intent.ACTION_VIEW);
+				Intent i = new Intent(Intent.ACTION_VIEW);
 				i.setData(Uri.parse(feed.getItem(pos).getLink()));
-				startActivity(i);*/
-				startActivity(intent);
+				startActivity(i);
+				//startActivity(intent);
 				}
 
 			

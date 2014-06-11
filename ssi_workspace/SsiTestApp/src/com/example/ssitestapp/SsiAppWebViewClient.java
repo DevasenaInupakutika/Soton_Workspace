@@ -2,7 +2,6 @@ package com.example.ssitestapp;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 //import com.google.analytics.tracking.android.Log;

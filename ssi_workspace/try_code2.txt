@@ -1,0 +1,55 @@
+public ArrayListObservable<String> LocationList =
+        new ArrayListObservable<String>(String.class){
+            @Override
+            public void onLoad(int position) {
+                super.onLoad(position);
+                if (position>=Loaded.get()-1){
+                    loadMore();
+                }
+            }
+};
+
+ 
+public IntegerObservable Loaded =
+        new IntegerObservable(0);
+ 
+public DependentObservable<Boolean> HasMore =
+        new DependentObservable<Boolean>(Boolean.class){
+            @Override
+            public Boolean calculateValue(Object... args) throws Exception {
+                return Loaded.get() < DATA.length;
+            }
+};
+ 
+public BooleanObservable Loading =
+        new BooleanObservable(false);
+ 
+public Command LoadMoreItems = new Command(){
+    @Override
+    public void Invoke(View view, Object... args) {
+        if (!Loading.get()) loadMore();
+    }
+};
+
+public IntegerObservable ItemsPerLoad =
+        new IntegerObservable(30);
+ 
+    private void loadMore(){
+    if (Loading.get()) return;
+    Loading.set(true);
+ 
+    ArrayList<String> add = new ArrayList<String>();
+    int loaded = Loaded.get();
+    for(int i=0; i<ItemsPerLoad.get(); i++){
+        if (DATA.length <= loaded) break;
+        add.add(DATA[loaded]);
+        loaded++;
+    }
+ 
+    Loaded.set(loaded);
+ 
+    // Batch adding will results less notification to view => better performance
+    LocationList.addAll(add);
+ 
+    Loading.set(false);
+}

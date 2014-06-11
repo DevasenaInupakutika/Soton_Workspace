@@ -1,5 +1,7 @@
 package com.example.ssitestapp;
 
+import com.example.ssitestapp.R;
+
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;

@@ -7,11 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
+//import com.google.analytics.tracking.android.EasyTracker;
 
 public class MainActivity extends Activity {
 
@@ -45,9 +42,10 @@ public class MainActivity extends Activity {
 	}
 		//Intent that will return to previous activity.
 				Intent myIntent = new Intent(getApplicationContext(),MainActivity.class );
-			    startActivityForResult(myIntent, 0);
+				myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivityForResult(myIntent, 0);
 			   
-				return super.onOptionsItemSelected(item);
+			    return super.onOptionsItemSelected(item);
 		
 	}
 
@@ -56,7 +54,7 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this); 
+		//EasyTracker.getInstance(this).activityStart(this); 
 	}
 
 
@@ -67,7 +65,7 @@ public class MainActivity extends Activity {
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);  
+		//EasyTracker.getInstance(this).activityStop(this);  
 	}
 
 	//Button eventsButton,blogButton,testButton;
@@ -98,9 +96,9 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
     	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			getActionBar().setDisplayHomeAsUpEnabled(true);
-		}
 		
 	}
+    }
 
 
 	@Override

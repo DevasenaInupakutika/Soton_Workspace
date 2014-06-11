@@ -3,9 +3,11 @@ package com.example.ssitestapp;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,85 +19,43 @@ import android.content.Intent;
 
 public class DisplayBlogsList extends Activity {
 
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
-	 */
+    
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
-		switch (item.getItemId()) {
+		switch(item.getItemId()){
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
-		//return true;
-
+		
 		//Intent that will return to previous activity.
-		Intent myIntent = new Intent(getApplicationContext(),MainActivity.class );
-	    startActivityForResult(myIntent, 0);
+		Intent myIntent = new Intent(getApplicationContext(),MainActivity.class);
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivityForResult(myIntent,0);
 		return super.onOptionsItemSelected(item);
 	}
-
+	
 	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
+    private static final String TAG = "MyActivity";
 	RSSFeed feed;
-
-	//Progress Bar functionality
-
-	private static final int PROGRESS = 0x1;
+    
+	//Progress Bar Functionality
 	private ProgressBar mProgress;
-	private int mProgressStatus = 0;
+	private int mProgressStatus=0;
 	private Handler mHandler = new Handler();
-	private TextView textView;
+	private TextView textView;	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_blogs_list);
-
-		mProgress = (ProgressBar) findViewById(R.id.progress_bartop);
-		textView = (TextView) findViewById(R.id.textview1);
-
-		//Start lengthy operation in a background thread.
-		new Thread(new Runnable(){
-
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				while(mProgressStatus < 100){
-
-					mProgressStatus += 1;
-
-					//Update Progress Bar
-					mHandler.post(new Runnable(){
-						public void run(){
-							mProgress.setProgress(mProgressStatus);
-							textView.setText(mProgressStatus+"%");
-
-						}
-
-					});
-					try{
-						Thread.sleep(1000);
-					}
-					catch (InterruptedException e){
-						e.printStackTrace();
-					}
-
-				}
-
-			}
-
-
-		}).start();
-
-
+		
+		
+		mProgress = (ProgressBar)findViewById(R.id.progress_bartop);
+		textView = (TextView)findViewById(R.id.textview1);
+		
 		ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
 		boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
@@ -122,23 +82,73 @@ public class DisplayBlogsList extends Activity {
         alert.show();
          
         } else {
-        // Connected - Start parsing
-        new AsyncLoadXMLFeed().execute();
+          // Connected - Start parsing
+          //new AsyncLoadXMLFeed().execute();
+        	
+        	AsyncLoadXMLFeed my_task = new AsyncLoadXMLFeed();
+        	
+        	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
+        		
+    			my_task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[])null);
+        	else
+        		my_task.execute((Void[])null);
+    	    
+        	
         }
+
 	}
 
-	private class AsyncLoadXMLFeed extends AsyncTask<Void, Void, Void>{
-
+	private class AsyncLoadXMLFeed extends AsyncTask<Void,Void,Void>{
 
 		@Override
 		protected Void doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			//Obtain feed
+			//Threading to improve performance of app. Starting lengthy operation in a background thread.
+			
+			new Thread(new Runnable(){
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					while(mProgressStatus < 100){
+						mProgressStatus += 1;
+						
+						//Update Progress Bar
+						mHandler.post(new Runnable(){
+
+							@Override
+							public void run() {
+								// TODO Auto-generated method stub
+								//Obtain feed
+							
+								mProgress.setProgress(mProgressStatus);
+								textView.setText(mProgressStatus + "%");
+								
+							}
+							
+							
+						});
+						try{
+							Thread.sleep(1000);
+						}
+						catch(InterruptedException e){
+							e.printStackTrace();
+						}
+					}
+					
+				}
+				
+			}).start();
+			
 			DOMParser myParser = new DOMParser();
-			feed = myParser.parseXml(RSSFEEDURL);
+			String xml = myParser.getXmlFromUrl(RSSFEEDURL);
+            feed = myParser.parseXml(xml,0);
+			
 			return null;
 		}	
-
+		/* (non-Javadoc)
+		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+		 */
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
@@ -146,17 +156,21 @@ public class DisplayBlogsList extends Activity {
 
 			Bundle bundle = new Bundle();
 			bundle.putSerializable("feed", feed);
-
+			
+			
 			//Launch ListActivity
-			Intent intent = new Intent(DisplayBlogsList.this,ListActivity.class);
-			intent.putExtras(bundle);
-			startActivity(intent);
-
+			Intent list_intent = new Intent(DisplayBlogsList.this,ListActivity.class);
+		    list_intent.putExtras(bundle);
+			startActivity(list_intent);
+	    
 			//Kill this activity.
 			finish();
-			}
 
+		}
+
+		
+		
 	}
-
-
+	
+	
 }

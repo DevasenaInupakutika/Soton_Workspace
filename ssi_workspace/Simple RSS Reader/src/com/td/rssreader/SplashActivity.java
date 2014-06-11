@@ -15,7 +15,7 @@ import com.td.rssreader.parser.RSSFeed;
 
 public class SplashActivity extends Activity {
 
-	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss";
+	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
 	RSSFeed feed;
 
 	@Override

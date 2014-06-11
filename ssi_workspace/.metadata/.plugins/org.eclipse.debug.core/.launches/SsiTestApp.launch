@@ -10,8 +10,8 @@
 <stringAttribute key="com.android.ide.eclipse.adt.target" value="AUTO"/>
 <booleanAttribute key="com.android.ide.eclipse.adt.wipedata" value="false"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/SsiTestApp"/>
-<listEntry value="/SsiTestApp/AndroidManifest.xml"/>
+<listEntry value="/SsiTestapp"/>
+<listEntry value="/SsiTestapp/AndroidManifest.xml"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
@@ -22,5 +22,5 @@
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
 <booleanAttribute key="org.eclipse.jdt.launching.ALLOW_TERMINATE" value="true"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SsiTestApp"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SsiTestapp"/>
 </launchConfiguration>

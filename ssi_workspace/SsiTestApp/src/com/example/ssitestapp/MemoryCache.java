@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import android.graphics.Bitmap;
 import android.util.Log;
 
@@ -18,7 +17,8 @@ public class MemoryCache {
     private long limit=1000000;//max memory in bytes
 
     public MemoryCache(){
-        //use 25% of available heap size
+        //use 25% of available heap size (By default memory cache uses 25% of available memory. We can try to use less
+    	//to have more free memory.
         setLimit(Runtime.getRuntime().maxMemory()/4);
     }
     

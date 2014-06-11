@@ -62,6 +62,12 @@ public class DOMParser {
 							// value to the Title in the RSSItem.
 							_item.setTitle(theString);
 						}
+						
+						/*else if("link".equals(nodeName)){
+							
+							_item.setLink(theString);
+						}*/
+
 
 						else if ("description".equals(nodeName)) {
 							_item.setDescription(theString);
@@ -82,7 +88,7 @@ public class DOMParser {
 									"");
 							_item.setDate(formatedDate);
 						}
-
+						
 					}
 				}
 

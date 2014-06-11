@@ -1,5 +1,7 @@
 package com.example.ssitestapp;
 
+import com.example.ssitestapp.R;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;

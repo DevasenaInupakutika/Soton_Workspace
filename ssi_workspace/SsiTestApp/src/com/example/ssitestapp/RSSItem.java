@@ -1,7 +1,6 @@
 package com.example.ssitestapp;
 
 import java.io.Serializable;
-import java.net.URL;
 
 // This handles RSS Item node in rss xml.
 

@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Action" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
-			<item value="action"/>
-			<item value="onOptionsItemSelected"/>
-			<item value="Action"/>
+			<item value="ArrayAdapter"/>
+			<item value="getView"/>
+			<item value="bundle"/>
+			<item value="Log"/>
+			<item value="Feed"/>
 			<item value="feed"/>
-			<item value="getDate"/>
-			<item value="WindowTitleBackground.DeviceDefault"/>
-			<item value="WindowTitleBackground"/>
-			<item value="WindowTitleBackgroundDeviceDefault"/>
+			<item value="RSSFeed"/>
+			<item value=".R"/>
 		</list>
 		<list key="replacehistory">
 		</list>

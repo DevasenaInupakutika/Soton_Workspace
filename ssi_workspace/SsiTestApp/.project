@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SsiTestApp</name>
+	<name>SsiTestapp</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -30,11 +30,4 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>libs/libGoogleAnalyticsServices.jar</name>
-			<type>1</type>
-			<location>/Users/user/Desktop/Disk Image New Installs/GoogleAnalyticsServicesAndroid_3.01/libGoogleAnalyticsServices.jar</location>
-		</link>
-	</linkedResources>
 </projectDescription>

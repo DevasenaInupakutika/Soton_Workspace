@@ -46,6 +46,7 @@ public class DetailActivity extends Activity {
 		title.setText(feed.getItem(pos).getTitle());
 		desc.loadDataWithBaseURL("http://www.software.ac.uk/blog", feed
 				.getItem(pos).getDescription(), "text/html", "UTF-8", null);
+		//desc.loadUrl(feed.getItem(pos).getLink());
 	}
 
 }

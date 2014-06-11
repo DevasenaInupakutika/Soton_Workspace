@@ -1,9 +1,9 @@
 ddms.logcat.automonitor.userprompt=true
 eclipse.preferences.version=1
-logcat.view.colsize.Application=68
-logcat.view.colsize.Level=60
-logcat.view.colsize.PID=164
-logcat.view.colsize.TID=75
-logcat.view.colsize.Tag=88
+logcat.view.colsize.Application=52
+logcat.view.colsize.Level=19
+logcat.view.colsize.PID=25
+logcat.view.colsize.TID=46
+logcat.view.colsize.Tag=101
 logcat.view.colsize.Text=674
-logcat.view.colsize.Time=29
+logcat.view.colsize.Time=104

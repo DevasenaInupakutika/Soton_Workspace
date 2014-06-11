@@ -123,7 +123,7 @@ public class ListActivity extends Activity {
 			//imageLoader.displayImage("http://software.ac.uk/", iv);
 			imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
 			tvTitle.setText(feed.getItem(pos).getTitle());
-			tvDate.setText(feed.getItem(pos).getDate());
+			tvDate.setText(feed.getItem(pos).getDate().substring(4, 16));
 
 			return listItem;
 		}

@@ -1,39 +1,27 @@
 package com.example.ssitestapp;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import de.l3s.boilerpipe.BoilerpipeProcessingException;
-import de.l3s.boilerpipe.extractors.ArticleExtractor;
-import de.l3s.*;
-import de.l3s.boilerpipe.*;
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class DetailActivity extends Activity{
-
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onSaveInstanceState(android.os.Bundle)
-	 */
 	
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onBackPressed()
-	 */
+	static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
+	RSSFeed feed;
+	TextView title;
+	WebView desc;
+	
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
@@ -43,45 +31,39 @@ public class DetailActivity extends Activity{
 		else{
 			super.onBackPressed();
 		}
-		
-	}
 
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
-	 */
-	RSSFeed feed;
-	TextView title;
-	WebView desc;
-	TextView testext;
-	URL url = null;
+	}
 	
-	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
-		//return true;
+
+		//Trial block to eliminate NullPointerException when navigating back to ListActivity.
+		
+		//DOMParser myParser = new DOMParser();
+		//String xml = myParser.getXmlFromUrl(RSSFEEDURL);
+		//feed = myParser.parseXml(xml);
 		
 		//Intent that will return to previous activity.
-		Intent myIntent = new Intent(this,DisplayBlogsList.class );
-		myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	    startActivity(myIntent);
-	    finish();
+		
+		//Bundle bundle = new Bundle();
+		//bundle.putSerializable("feed", feed);
+		
+		Intent myIntent = new Intent(this,ListActivity.class);
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		//myIntent.putExtras(bundle);
+	    startActivityForResult(myIntent,0);
 	    
+	    finish();
 		return super.onOptionsItemSelected(item);
 	}
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	@SuppressLint("NewApi")
+	
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	          super.onCreate(savedInstanceState);
@@ -94,9 +76,9 @@ public class DetailActivity extends Activity{
 	// Get the feed object and the position from the Intent
 	          feed = (RSSFeed) getIntent().getExtras().get("feed");
 	          int pos = getIntent().getExtras().getInt("pos");
-	 
+	  		
 	// Initialise the views
-	          //title = (TextView) findViewById(R.id.title);
+	          title = (TextView) findViewById(R.id.title);
 	          desc = (WebView) findViewById(R.id.desc);
 	          
 	// set webview properties and enabling Javascript
@@ -107,49 +89,30 @@ public class DetailActivity extends Activity{
 	          ws.setJavaScriptEnabled(true);
 	          desc.setWebViewClient(new SsiAppWebViewClient());
 	          ws.setBuiltInZoomControls(true);
-	         
-	 //Commented as detail activity page doesn't require title.
-	          
-	          //title.setText(feed.getItem(pos).getTitle()); 
-	          
-	         /* String text = null;
-	          try {
-				url = new URL("http://software.ac.uk/blog/2014-05-02-software-carpentry-garnet?bw");
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	          try {
-				text = ArticleExtractor.INSTANCE.getText(url);
-			} catch (BoilerpipeProcessingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	          title.setText(text);*/
-	          
-	         
-	          if(savedInstanceState == null)
-	          {	    
-	        	 desc.loadUrl(feed.getItem(pos).getLink());
+	       
+	         title.setText(" ");
+	         if(savedInstanceState == null)
+	         {	    
+	        	//desc.loadDataWithBaseURL("http://www.software.ac.uk/blog", feed
+	     			//	.getItem(pos).getDescription(), "text/html", "UTF-8", null);
+	        	desc.loadUrl(feed.getItem(pos).getLink());
 	        	 
-	          }
-	
+	          }	
 	          ActionBar actionBar = getActionBar();
 	          actionBar.setDisplayHomeAsUpEnabled(true);
-	  		
+
 	  		// Show the Up button in the action bar.
 	  		  setupActionBar();
-	
+
 	}
 	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// TODO Auto-generated method stub
-		//super.onSaveInstanceState(outState);
+		 super.onSaveInstanceState(outState);
 		 desc.saveState(outState);
 	}
-
-
+	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	    switch (keyCode) {
@@ -165,11 +128,14 @@ public class DetailActivity extends Activity{
 	    }
 	    return super.onKeyDown(keyCode, event);
 	}
+
 	
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void setupActionBar() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		
 			getActionBar().setDisplayHomeAsUpEnabled(true);
-		}
+		
 	}
+	}
+
 }

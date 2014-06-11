@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ssitestapp"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -15,23 +15,23 @@
     
     <application
             android:icon="@drawable/ssiappicon"
-            android:allowBackup="true">
-   
-     
-        <activity
-            android:icon="@drawable/ssiappicon2" 
+            android:allowBackup="true"
+            android:largeHeap="true">
+
+        <activity 
+            android:icon="@drawable/ssiappicon"
             android:name="com.example.ssitestapp.MainActivity"
             android:theme="@style/MainActivityTheme"
-            android:label="@string/app_name" 
-            android:textStyle="bold" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+           
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+               <category android:name="android.intent.category.LAUNCHER"/>
+           </intent-filter>
+            
+            
         </activity>
-
-       
-
         <!-- Splash activity page for Blog RSS feed and Activity -->
 
         <activity
@@ -39,54 +39,58 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:theme="@style/CustomTheme"
-            android:parentActivityName="com.example.ssitestapp.MainActivity">
-            
+            android:parentActivityName="com.example.ssitestapp.MainActivity"
+            android:launchMode="singleTop">
+           
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ssitestapp.MainActivity" />
-
+            
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
+               <action android:name="android.intent.action.MAIN"/>
+             </intent-filter>  
 
+        </activity>
+        
         <!--  List View Activity with list of Blogs on SSI Website -->
         
         <activity
-            
             android:name=".ListActivity"
             android:icon="@drawable/ssiappicon2"
             android:theme="@style/ListTheme"
             android:label="@string/title_activity_list" android:textColor="@color/white1" android:background="@color/ssicolor"
             android:layout_gravity="center"
+            android:parentActivityName="com.example.ssitestapp.MainActivity"
+            android:launchMode="singleTop">
             
-            android:parentActivityName="com.example.ssitestapp.MainActivity">
-            <meta-data
+             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ssitestapp.MainActivity" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
             
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+             </intent-filter>  
+           
         </activity>
         
         <!--  Detailed view of Blogs List view --> 
         
         <activity 
                   android:icon="@drawable/ssiappicon2"
-                  android:name=".DetailActivity" 
+                  android:name="com.example.ssitestapp.DetailActivity" 
                   android:theme="@style/ListTheme"
                   android:label=" "
-                  android:parentActivityName="com.example.ssitestapp.DisplayBlogsList">
-                  <meta-data
-                	android:name="android.support.PARENT_ACTIVITY"
-                	android:value="com.example.ssitestapp.DisplayBlogsList" />
-                  
-                  <intent-filter>
-                		<action android:name="android.intent.action.MAIN" />
-            	  </intent-filter>
-                  
-
+                  android:parentActivityName="com.example.ssitestapp.ListActivity"
+                  android:launchMode="singleTop">
+            
+             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.ListActivity" />
+            
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+             </intent-filter>  
+    
          </activity>
     
     </application>

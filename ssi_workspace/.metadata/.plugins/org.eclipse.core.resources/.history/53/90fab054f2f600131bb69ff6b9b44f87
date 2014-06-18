@@ -1,0 +1,61 @@
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ssitestapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- Internet Permissions -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
+    <application
+            android:icon="@drawable/ssiappicon"
+            android:allowBackup="true"
+            android:largeHeap="true">
+
+        <activity 
+            android:icon="@drawable/ssiappicon"
+            android:name="com.example.ssitestapp.BlogListActivity"
+            android:theme="@style/ListTheme"
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+           
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+               <category android:name="android.intent.category.LAUNCHER"/>
+           </intent-filter>
+            
+            
+        </activity>
+        <!-- Splash activity page for Blog RSS feed and Activity -->
+
+       
+        
+        <!--  Detailed view of Blogs List view --> 
+        
+        <activity 
+                  android:icon="@drawable/ssiappicon2"
+                  android:name="com.example.ssitestapp.BlogDetail" 
+                  android:theme="@style/ListTheme"
+                  android:label=" "
+                  android:parentActivityName="com.example.ssitestapp.BlogListActivity"
+                  android:launchMode="singleTop">
+            
+             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ssitestapp.BlogListActivity" />
+            
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+             </intent-filter>  
+    
+         </activity>
+    
+    </application>
+
+</manifest>

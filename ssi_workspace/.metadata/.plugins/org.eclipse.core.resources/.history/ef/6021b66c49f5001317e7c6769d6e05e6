@@ -1,0 +1,13 @@
+package com.example.ssitestapp;
+
+import android.app.Activity;
+
+public class InfiniteScrollListActivity extends Activity{
+		
+	// A setting for how many items should be loaded at once from the server (software.ac.uk)
+	
+	private static final int SERVER_SIDE_BATCH_SIDE = 10;
+	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
+	
+	
+}

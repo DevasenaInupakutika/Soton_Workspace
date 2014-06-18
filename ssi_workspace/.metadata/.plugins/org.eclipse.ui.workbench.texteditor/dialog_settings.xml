@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="Adapter" key="selection"/>
 		<list key="findhistory">
-			<item value="ArrayAdapter"/>
-			<item value="getView"/>
-			<item value="bundle"/>
-			<item value="Log"/>
-			<item value="Feed"/>
-			<item value="feed"/>
-			<item value="RSSFeed"/>
-			<item value=".R"/>
+			<item value="adapter"/>
+			<item value="Adapter"/>
+			<item value="R.id"/>
+			<item value="OnItem"/>
+			<item value="R.layout"/>
+			<item value="_item"/>
+			<item value="RSSFeedURL"/>
+			<item value="ImageView"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -1,0 +1,46 @@
+package com.example.ssitestapp;
+
+import java.util.List;
+
+import com.samir.ImageLoader;
+import com.samir.NewsRowAdapter.ViewHolder;
+
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+public class CustomBlogAdapter extends ArrayAdapter<RSSBlog> {
+
+	
+	private Activity activity;
+	private List<RSSBlog> items;
+	private RSSBlog objBlog;
+	
+	public CustomBlogAdapter(Activity act, int resource,
+			List<RSSBlog> objects) {
+		super(act, resource, objects);
+		// TODO Auto-generated constructor stub
+		this.activity = act;
+		this.items = objects;
+	}
+	
+	/* (non-Javadoc)
+	 * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
+	 */
+	@Override
+	public View getView(final int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		View view = convertView;
+		ViewHolder holder;
+		ImageLoader imageloader;
+		return view;
+	}
+	
+	public class ViewHolder{
+		
+		
+	}
+
+
+}

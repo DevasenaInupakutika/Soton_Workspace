@@ -1,0 +1,23 @@
+package com.example.ssitestapp;
+
+import java.util.List;
+
+import com.samir.NewsBean;
+
+import android.app.Activity;
+import android.widget.ArrayAdapter;
+
+public class CustomBlogAdapter extends ArrayAdapter<RSSBlog> {
+
+	private Activity activity;
+	private List<RSSBlog> items;
+	private RSSBlog objBlog;
+	
+	public CustomBlogAdapter(Activity act, int resource,
+			List<RSSBlog> objects) {
+		super(act, resource, objects);
+		// TODO Auto-generated constructor stub
+		
+	}
+
+}

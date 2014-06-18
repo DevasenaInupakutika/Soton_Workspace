@@ -1,0 +1,10 @@
+package com.example.ssitestapp;
+
+/**
+ * Mimic the server side logic to return results with some delay
+ */
+
+public class BlogRemoteService {
+	private static final String TAG = BlogRemoteService.class.getSimpleName();
+
+}

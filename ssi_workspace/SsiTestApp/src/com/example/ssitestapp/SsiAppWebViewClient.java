@@ -11,6 +11,7 @@ public class SsiAppWebViewClient extends WebViewClient {
 	/* (non-Javadoc)
 	 * @see android.webkit.WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView, java.lang.String)
 	 */
+
 	@Override
 	public boolean shouldOverrideUrlLoading(WebView view, String url) {
 		// TODO Auto-generated method stub

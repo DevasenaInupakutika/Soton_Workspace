@@ -1,0 +1,57 @@
+package com.example.ssitestapp;
+
+import java.util.List;
+
+import com.example.ssitestapp.InfiniteScrollListView.LoadingMode;
+import com.example.ssitestapp.InfiniteScrollListView.StopPosition;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ImageView;
+import android.widget.ListView;
+
+public class InfiniteScrollListActivity extends Activity{
+		
+	// A setting for how many items should be loaded at once from the server (software.ac.uk)
+	
+	private static final int SERVER_SIDE_BATCH_SIDE = 10;
+	private static final String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
+	
+	private InfiniteScrollListView lv;
+	private ImageView iv;
+	
+	private BlogListAdapter bloglistAdapter;
+	private Handler handler;
+	
+	private AsyncTask<Void, Void, List<RSSItem>> fetchAsyncTask;
+	private RSSFeed feed;
+	
+	private LoadingMode loadingMode = LoadingMode.SCROLL_TO_BOTTOM;
+	private StopPosition stopPosition = StopPosition.REMAIN_UNCHANGED;
+
+	public InfiniteScrollListActivity(){
+		super();
+		// Get feed from the file
+				feed = (RSSFeed) getIntent().getExtras().get("feed");
+	}
+	
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.feed_list);
+		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		handler = new Handler();
+		
+		// Initialise the variables
+		lv = (InfiniteScrollListView) findViewById(R.id.listView);
+		lv.setVerticalFadingEdgeEnabled(true);
+		
+		
+				
+
+		
+	}
+}

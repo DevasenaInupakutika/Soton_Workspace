@@ -92,7 +92,7 @@ public class DOMParser {
 			NodeList nl = doc.getElementsByTagName("item"); //Parent node
 			int length = nl.getLength();
 			
-			for (int i = curr_page * item_page ; i < (curr_page+1)*item_page ; i++) {
+			for (int i = curr_page; i < curr_page + 20 ; i++) {
 				//Node currentNode = nl.item(i);
 				Node currentNode = nl.item(i);
 				RSSItem _item = new RSSItem();
@@ -137,6 +137,15 @@ public class DOMParser {
 							
 							Elements imgEle = docHtml.select("img");
 							_item.setImage(imgEle.attr("src"));
+							
+							/*//Parse the html description to get content
+							String html_desc = theString;
+							org.jsoup.nodes.Document doc_desc = Jsoup
+									.parse(html_desc);
+							
+							Elements contentEle = doc_desc.select("div.content");
+							_item.setDescription(contentEle.outerHtml());*/
+							
 						}
 						
 

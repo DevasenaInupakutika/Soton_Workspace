@@ -12,6 +12,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -21,6 +22,8 @@ public class DetailActivity extends Activity{
 	RSSFeed feed;
 	TextView title;
 	WebView desc;
+	ImageView iv;
+	ImageLoader imageloader;
 	
 	@Override
 	public void onBackPressed() {
@@ -42,16 +45,6 @@ public class DetailActivity extends Activity{
 			return true;
 		}
 
-		//Trial block to eliminate NullPointerException when navigating back to ListActivity.
-		
-		//DOMParser myParser = new DOMParser();
-		//String xml = myParser.getXmlFromUrl(RSSFEEDURL);
-		//feed = myParser.parseXml(xml);
-		
-		//Intent that will return to previous activity.
-		
-		//Bundle bundle = new Bundle();
-		//bundle.putSerializable("feed", feed);
 		
 		Intent myIntent = new Intent(this,ListActivity.class);
 		myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -63,6 +56,7 @@ public class DetailActivity extends Activity{
 	}
 	
 	
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,32 +66,39 @@ public class DetailActivity extends Activity{
 	// Enable the vertical fading edge (by default it is disabled)
 	          ScrollView sv = (ScrollView) findViewById(R.id.sv);
 	          sv.setVerticalFadingEdgeEnabled(true);
+	          
+	          //imageloader = new ImageLoader(this.getApplicationContext());
 	 
 	// Get the feed object and the position from the Intent
 	          feed = (RSSFeed) getIntent().getExtras().get("feed");
 	          int pos = getIntent().getExtras().getInt("pos");
-	  		
+	             
 	// Initialise the views
 	          title = (TextView) findViewById(R.id.title);
 	          desc = (WebView) findViewById(R.id.desc);
+	          //iv = (ImageView) findViewById(R.id.thumb);
+	         
 	          
 	// set webview properties and enabling Javascript
-	          WebSettings ws = desc.getSettings();
-	          ws.setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
-	          ws.getPluginState();
-	          ws.setPluginState(PluginState.ON);
-	          ws.setJavaScriptEnabled(true);
-	          desc.setWebViewClient(new SsiAppWebViewClient());
-	          ws.setBuiltInZoomControls(true);
+	         WebSettings ws = desc.getSettings();
+	         ws.setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
+	         ws.getPluginState();
+	         ws.setPluginState(PluginState.ON);
+	         ws.setJavaScriptEnabled(true);
+	         desc.setWebViewClient(new SsiAppWebViewClient());
+	         ws.setBuiltInZoomControls(true);
 	       
-	         title.setText(" ");
+	          title.setText(" ");
+	          
+	          //title.setText(feed.getItem(pos).getTitle());
+	          //imageloader.DisplayImage(feed.getItem(pos).getImage(), iv);
+	          
 	         if(savedInstanceState == null)
 	         {	    
 	        	//desc.loadDataWithBaseURL("http://www.software.ac.uk/blog", feed
 	     			//	.getItem(pos).getDescription(), "text/html", "UTF-8", null);
 	        	desc.loadUrl(feed.getItem(pos).getLink());
-	        	 
-	          }	
+	         }	
 	          ActionBar actionBar = getActionBar();
 	          actionBar.setDisplayHomeAsUpEnabled(true);
 

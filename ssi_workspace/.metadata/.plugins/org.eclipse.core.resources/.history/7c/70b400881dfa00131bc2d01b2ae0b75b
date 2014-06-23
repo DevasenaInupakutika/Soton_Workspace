@@ -1,0 +1,5 @@
+package uk.software.blogreader.image;
+
+public class ImageLoader {
+
+}

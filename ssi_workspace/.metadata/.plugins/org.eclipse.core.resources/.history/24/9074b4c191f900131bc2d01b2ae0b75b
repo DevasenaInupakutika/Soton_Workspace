@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Software and Research</string>
+    <string name="loading">Loading please wait ...</string>
+    <string name="title">null</string>
+    <string name="date">date</string>
+
+</resources>

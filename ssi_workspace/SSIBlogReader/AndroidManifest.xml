@@ -39,7 +39,7 @@
            
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ssitestapp.MainActivity" />
+                android:value=".MainActivity" />
             
             <intent-filter>
                <action android:name="android.intent.action.MAIN"/>
@@ -49,7 +49,18 @@
         <activity android:name=".ListActivity" 
                   android:theme="@style/ListTheme"
                   android:label="@string/title_activity_list" android:textColor="@color/white1" android:background="@color/ssicolor"
-                  android:layout_gravity="center"/>
+                  android:layout_gravity="center"
+                  android:parentActivityName=".MainActivity"
+                  android:launchMode="singleTop">
+            
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+             </intent-filter>  
+            </activity>
         
         <activity android:name=".DetailActivity" 
                   android:theme="@style/ListTheme"

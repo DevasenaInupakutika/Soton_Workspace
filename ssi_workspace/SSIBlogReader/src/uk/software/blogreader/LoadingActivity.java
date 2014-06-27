@@ -30,6 +30,13 @@ public class LoadingActivity extends Activity{
 	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
 	RSSFeed feed;
 	String fileName;
+	
+	//Progress Bar Functionality
+		private ProgressBar mProgress;
+		private int mProgressStatus=0;
+		private Handler mHandler = new Handler();
+		private TextView textView;	
+		
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
@@ -49,7 +56,11 @@ public class LoadingActivity extends Activity{
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_display_blogs_list);
-
+		
+        //Progress bar on Loading activity screen
+		mProgress = (ProgressBar)findViewById(R.id.progress_bartop);
+		textView = (TextView)findViewById(R.id.textview1);
+		
 		fileName = "SSIRSSFeed.blog";
 
 		File feedFile = getBaseContext().getFileStreamPath(fileName);
@@ -117,6 +128,42 @@ public class LoadingActivity extends Activity{
 
 		@Override
 		protected Void doInBackground(Void... params) {
+			
+			//Progress bar populating list view thread
+			new Thread(new Runnable(){
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					while(mProgressStatus < 100){
+						mProgressStatus += 1;
+						
+						//Update Progress Bar
+						mHandler.post(new Runnable(){
+
+							@Override
+							public void run() {
+								// TODO Auto-generated method stub
+								//Obtain feed
+							
+								mProgress.setProgress(mProgressStatus);
+								textView.setText(mProgressStatus + "%");
+								
+							}
+							
+							
+						});
+						try{
+							Thread.sleep(1000);
+						}
+						catch(InterruptedException e){
+							e.printStackTrace();
+						}
+					}
+					
+				}
+				
+			}).start();
 			// Obtain feed
 			DOMParser myParser = new DOMParser();
 			feed = myParser.parseXml(RSSFEEDURL);

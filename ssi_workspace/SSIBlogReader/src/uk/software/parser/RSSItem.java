@@ -9,7 +9,8 @@ public class RSSItem implements Serializable{
 	private String _date = null;
 	private String _image = null;
 	private String _link = null;
-
+	private String _video = null;
+	
 	void setTitle(String title) {
 		_title = title;
 	}
@@ -24,6 +25,9 @@ public class RSSItem implements Serializable{
 
 	void setImage(String image) {
 		_image = image;
+	}
+	void setVideo(String video){
+		_video = video;
 	}
 
 	void setLink(String link){
@@ -45,7 +49,9 @@ public class RSSItem implements Serializable{
 	public String getImage() {
 		return _image;
 	}
-
+	public String getVideo(){
+		return _video;
+	}
 	public String getLink(){
 		return _link;
 	}

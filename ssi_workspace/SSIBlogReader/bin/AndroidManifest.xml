@@ -64,8 +64,19 @@
         
         <activity android:name=".DetailActivity" 
                   android:theme="@style/ListTheme"
-                  android:label=" "/>
+                  android:label=" "
+                  android:parentActivityName=".ListActivity"
+                  android:launchMode="singleTop">
+            
+             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListActivity" />
+            
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+             </intent-filter>  
         
+        </activity>
         
         
         

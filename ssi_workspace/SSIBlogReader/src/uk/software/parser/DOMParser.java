@@ -1,5 +1,9 @@
 package uk.software.parser;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -15,6 +19,7 @@ import org.xml.sax.InputSource;
 
 public class DOMParser {
 	private RSSFeed _feed = new RSSFeed();
+	private String htmlBlog = new String();
 
 	public RSSFeed parseXml(String xml) {
 
@@ -80,6 +85,7 @@ public class DOMParser {
 						}
 						
 						else if("link".equals(nodeName)){
+							
 							_item.setLink(theString);
 						}
 
@@ -105,6 +111,36 @@ public class DOMParser {
 		// Return the final feed once all the Items are added to the RSSFeed
 		// Object(_feed).
 		return _feed;
+	}
+
+    public String parseHtml(String link){
+		
+		URL blogURL = null;
+		try {
+			blogURL = new URL(link);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream is = (InputStream) blogURL.getContent();
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			String line = null;
+			StringBuffer sb = new StringBuffer();
+			
+			while((line = br.readLine()) != null){
+				   sb.append(line);
+				 }
+				 htmlBlog = sb.toString();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return htmlBlog;
+		
 	}
 
 

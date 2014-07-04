@@ -28,7 +28,9 @@ import android.widget.Toast;
 
 public class LoadingActivity extends Activity{
 	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
+	private int fPos;
 	RSSFeed feed;
+	String htmlString;
 	String fileName;
 	
 	//Progress Bar Functionality
@@ -167,6 +169,8 @@ public class LoadingActivity extends Activity{
 			// Obtain feed
 			DOMParser myParser = new DOMParser();
 			feed = myParser.parseXml(RSSFEEDURL);
+			htmlString = myParser.parseHtml(feed.getItem(fPos).getLink());
+			
 			if (feed != null && feed.getItemCount() > 0)
 				WriteFeed(feed);
 			return null;

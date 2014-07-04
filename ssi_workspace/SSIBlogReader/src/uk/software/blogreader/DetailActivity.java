@@ -2,12 +2,17 @@ package uk.software.blogreader;
 
 import uk.software.parser.*;
 import uk.software.blogreader.R;
+import android.app.ActionBar;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
 
 public class DetailActivity extends FragmentActivity{
 	RSSFeed feed;
@@ -15,6 +20,31 @@ public class DetailActivity extends FragmentActivity{
 	private DescAdapter adapter;
 	private ViewPager pager;
 
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+			super.onBackPressed();
+
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		}
+
+		
+		Intent myIntent = new Intent(this,ListActivity.class);
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		//myIntent.putExtras(bundle);
+	    startActivityForResult(myIntent,0);
+	    
+	    finish();
+		return super.onOptionsItemSelected(item);
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,9 +61,16 @@ public class DetailActivity extends FragmentActivity{
 		// Set Adapter to pager:
 		pager.setAdapter(adapter);
 		pager.setCurrentItem(pos);
+		
+		   ActionBar actionBar = getActionBar();
+	       actionBar.setDisplayHomeAsUpEnabled(true);
+
+	  	  // Show the Up button in the action bar.
+	  	  setupActionBar();
+
 
 	}
-
+	
 	public class DescAdapter extends FragmentStatePagerAdapter {
 		public DescAdapter(FragmentManager fm) {
 			super(fm);
@@ -59,6 +96,15 @@ public class DetailActivity extends FragmentActivity{
 		}
 
 	}
+	
+	private void setupActionBar() {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+	}
+	}
+
 
 
 }

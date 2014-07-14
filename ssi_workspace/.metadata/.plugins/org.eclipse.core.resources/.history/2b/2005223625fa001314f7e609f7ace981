@@ -1,8 +1,0 @@
-package uk.software.blogreader;
-
-import android.support.v4.app.FragmentActivity;
-
-public class DetailActivity extends FragmentActivity{
-	
-
-}

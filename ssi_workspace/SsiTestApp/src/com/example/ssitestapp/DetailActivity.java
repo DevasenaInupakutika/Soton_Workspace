@@ -77,7 +77,7 @@ public class DetailActivity extends Activity{
 	          title = (TextView) findViewById(R.id.title);
 	          desc = (WebView) findViewById(R.id.desc);
 	          //iv = (ImageView) findViewById(R.id.thumb);
-	         
+	        
 	          
 	// set webview properties and enabling Javascript
 	         WebSettings ws = desc.getSettings();

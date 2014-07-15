@@ -102,7 +102,7 @@ p.submitted { color: #999; }
 .frontpage #content table td p { margin-top: 0; }
 .frontpage #content table td p:last-child { margin-bottom: 0; }
 
-p.submitted { clear: both; }
+p.submitted { clear: both; color: #999999 }
 
 /* images for teasers */
 .view-blog-list-all .node img,

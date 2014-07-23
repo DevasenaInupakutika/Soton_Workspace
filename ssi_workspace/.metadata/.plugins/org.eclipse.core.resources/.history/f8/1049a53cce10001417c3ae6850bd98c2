@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+tools:ignore="TypographyDashes">
+
+    <!-- the Local LogLevel for Analytics -->
+    <string name="ga_logLevel">verbose</string>
+
+    <!-- how often the dispatcher should fire -->
+    <integer name="ga_dispatchPeriod">1</integer>
+   
+    <!-- The screen names that will appear in reports -->
+    <screenName name="com.google.android.gms.analytics.samples.mobileplayground.ScreenviewFragment">
+          AnalyticsSampleApp ScreenView
+   </screenName>  
+    
+    <screenName name="com.google.android.gms.analytics.samples.mobileplayground.EcommerceFragment">
+      AnalyticsSampleApp EcommerceView  
+    </screenName>
+  
+    <!-- Treat events as test events (if set to TRUE) and don't send to google -->
+    <bool name="ga_dryRun">false</bool>
+    
+    <bool name="ga_debug">false</bool>
+ 
+    <!-- The screen names that will appear in reports -->
+    <string name="uk.software.blogreader.DetailActivity">SSI Blog Page</string>
+    
+</resources>

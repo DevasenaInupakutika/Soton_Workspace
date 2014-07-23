@@ -14,5 +14,15 @@
 			<type>2</type>
 			<location>/Users/user/Android-PullToRefresh/library/src/com</location>
 		</link>
+		<link>
+			<name>.link1</name>
+			<type>2</type>
+			<location>/Users/user/Desktop/Disk Image New Installs/adt-bundle-mac-x86_64-20131030/sdk/sources/android-19</location>
+		</link>
+		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>/Users/user/Desktop/Disk Image New Installs/adt-bundle-mac-x86_64-20131030/sdk/sources/android-16</location>
+		</link>
 	</linkedResources>
 </projectDescription>

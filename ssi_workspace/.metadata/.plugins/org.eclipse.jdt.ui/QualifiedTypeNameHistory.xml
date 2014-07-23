@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.content.Intent"/>
-<fullyQualifiedTypeName name="android.net.Uri"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="android.os.Bundle"/>
-<fullyQualifiedTypeName name="android.text.Html"/>
-<fullyQualifiedTypeName name="android.text.Spanned"/>
-<fullyQualifiedTypeName name="org.apache.http.impl.client.DefaultHttpClient"/>
-<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
-<fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
-<fullyQualifiedTypeName name="android.os.Handler"/>
-<fullyQualifiedTypeName name="com.example.ssitestapp.InfiniteScrollListView.LoadingMode"/>
-<fullyQualifiedTypeName name="com.example.ssitestapp.InfiniteScrollListView.StopPosition"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
-<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
-<fullyQualifiedTypeName name="com.example.ssitestapp.R.layout"/>
-<fullyQualifiedTypeName name="com.example.ssitestapp.BlogListAdapter.NewPageListener"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.widget.AbsListView"/>
 <fullyQualifiedTypeName name="android.widget.AbsListView.OnScrollListener"/>
 <fullyQualifiedTypeName name="com.samir.R.id"/>
@@ -60,4 +42,22 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
+<fullyQualifiedTypeName name="android.webkit.WebViewClient"/>
+<fullyQualifiedTypeName name="com.google.analytics.tracking.android.GoogleAnalytics"/>
+<fullyQualifiedTypeName name="com.google.analytics.tracking.android.Tracker"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.google.analytics.tracking.android.EasyTracker"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.R.xml"/>
+<fullyQualifiedTypeName name="android.app.Application"/>
+<fullyQualifiedTypeName name="android.net.NetworkInfo"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
+<fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
+<fullyQualifiedTypeName name="com.google.android.gms.analytics.GoogleAnalytics"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.MyApplication.TrackerName"/>
+<fullyQualifiedTypeName name="com.google.android.gms.analytics.HitBuilders.AppViewBuilder"/>
+<fullyQualifiedTypeName name="com.google.android.gms.analytics.HitBuilders"/>
+<fullyQualifiedTypeName name="com.google.android.apps.analytics.GoogleAnalyticsTracker"/>
+<fullyQualifiedTypeName name="com.google.android.gms.analytics.Tracker"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,7 @@
+package uk.software.blogreader;
+
+import android.webkit.WebViewClient;
+
+public class SSIAppWebViewClient extends WebViewClient {
+
+}

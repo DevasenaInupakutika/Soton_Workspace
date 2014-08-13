@@ -84,7 +84,7 @@ public class LoadingActivity extends Activity{
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
 				builder.setMessage(
 						"Unable to reach server, \nPlease check your connectivity.")
-						.setTitle("Software and Research")
+						.setTitle("SSI Blog")
 						.setCancelable(false)
 						.setPositiveButton("Exit",
 								new DialogInterface.OnClickListener() {
@@ -105,7 +105,7 @@ public class LoadingActivity extends Activity{
 						Toast.LENGTH_LONG);
 				toast.show();
 				feed = ReadFeed(fileName);
-				startLisActivity(feed);
+				startListActivity(feed);
 			}
 
 		} else {
@@ -117,7 +117,7 @@ public class LoadingActivity extends Activity{
 
 	}
 
-	private void startLisActivity(RSSFeed feed) {
+	private void startListActivity(RSSFeed feed) {
 
 		Bundle bundle = new Bundle();
 		bundle.putSerializable("feed", feed);
@@ -177,7 +177,7 @@ public class LoadingActivity extends Activity{
 			feed = myParser.parseXml(RSSFEEDURL);
 			htmlString = myParser.parseHtml(feed.getItem(fPos).getLink());
 			
-			if (feed != null && feed.getItemCount() > 0)
+			if (feed != null && feed.getItemCount() > 0 && htmlString != null)
 				WriteFeed(feed);
 			return null;
 
@@ -187,7 +187,7 @@ public class LoadingActivity extends Activity{
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 
-			startLisActivity(feed);
+			startListActivity(feed);
 		}
 
 	}

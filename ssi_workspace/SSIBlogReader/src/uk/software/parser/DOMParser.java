@@ -44,7 +44,7 @@ public class DOMParser {
 			NodeList nl = doc.getElementsByTagName("item");
 			int length = nl.getLength();
 
-			for (int i = 0; i < 200; i++) {
+			for (int i = 0; i < 30; i++) {
 				Node currentNode = nl.item(i);
 				RSSItem _item = new RSSItem();
 

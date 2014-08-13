@@ -1,0 +1,15 @@
+package uk.software.blogreader.test;
+
+import android.test.ActivityInstrumentationTestCase2;
+import uk.software.blogreader.LoadingActivity;
+
+public class LoadingActivityTest extends
+		ActivityInstrumentationTestCase2<LoadingActivity> {
+
+	public LoadingActivityTest() {
+		super(LoadingActivity.class);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

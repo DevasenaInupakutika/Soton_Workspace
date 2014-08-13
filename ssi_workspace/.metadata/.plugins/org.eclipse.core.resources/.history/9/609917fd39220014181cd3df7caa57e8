@@ -1,0 +1,8 @@
+package uk.software.blogreader.test;
+
+import android.test.ActivityInstrumentationTestCase2;
+
+public class LoadingActivityTest extends
+		ActivityInstrumentationTestCase2<LoadingActivity> {
+
+}

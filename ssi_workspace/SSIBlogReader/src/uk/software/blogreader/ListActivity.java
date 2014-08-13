@@ -110,7 +110,7 @@ public class ListActivity extends Activity {
 		// Start your statistics tracking
         tracker = GoogleAnalyticsTracker.getInstance();     
       
-        //tracker.start("UA-46208653-1", this); // Start the tracker in manual dispatch mode.
+        tracker.start("UA-46208653-1", this); // Start the tracker in manual dispatch mode.
         tracker.start("UA-46208653-1", 30, this);   //Tracker started  with a dispatch interval of 5 seconds for real-time tracking
 		tracker.trackPageView("/SSI Blog Page");
 		
@@ -122,13 +122,13 @@ public class ListActivity extends Activity {
 					long arg3) {
 				
 				int pos = arg2;
-
+				
 				// actions to be performed when a list item clicked
 			    tracker.trackPageView(feed.getItem(pos).getLink());   
 		        tracker.trackEvent("Clicks","ListItem", "Blog Clicked", 0);
 		        
 		        easyTracker.send(MapBuilder.createEvent("Click", "List Item Clicked", feed.getItem(pos).getLink(), null).build());
-
+		        
 				Bundle bundle = new Bundle();
 				bundle.putSerializable("feed", feed);
 				Intent intent = new Intent(ListActivity.this,
@@ -136,6 +136,8 @@ public class ListActivity extends Activity {
 				intent.putExtras(bundle);
 				intent.putExtra("pos", pos);
 				startActivity(intent);
+				
+				
 				
 			}
 		});

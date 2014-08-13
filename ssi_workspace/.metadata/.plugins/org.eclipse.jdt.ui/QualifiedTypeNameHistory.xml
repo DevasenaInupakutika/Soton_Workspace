@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.samir.R.drawable"/>
-<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
-<fullyQualifiedTypeName name="com.example.ssitestapp.R.id"/>
-<fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="android.webkit.WebSettings"/>
 <fullyQualifiedTypeName name="android.webkit.WebView"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.google.analytics.tracking.android.Fields"/>
 <fullyQualifiedTypeName name="com.google.android.gms.analytics.HitBuilders.EventBuilder"/>
 <fullyQualifiedTypeName name="com.google.analytics.tracking.android.MapBuilder"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.LoadingActivity"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.MainActivity"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.ListActivity"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.R"/>
+<fullyQualifiedTypeName name="uk.software.blogreader.R.id"/>
+<fullyQualifiedTypeName name="android.widget.ListAdapter"/>
 </qualifiedTypeNameHistroy>

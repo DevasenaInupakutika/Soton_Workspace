@@ -1,0 +1,32 @@
+package uk.software.blogreader;
+
+import java.lang.Math.*;
+
+public class CountdownNumber {
+	
+	private String   m_representation;
+    private double   value;
+    private boolean  m_isValid;     // can be invalid either when uninitialized or when there's been a division by zero error
+    private Operator op;          // the principal operator of the node
+    private double   offset;    // offset from target
+    
+
+	CountdownNumber(double val){
+		m_isValid        = (val != 0.0) || ( m_target == 0.0);  
+
+        if( m_isValid) {
+        	value           = val;
+        	m_representation  = doubleToString(value);
+        	offset       = abs( val - m_target);
+        } else {
+        	value           = m_LARGE_NUMBER;
+            m_representation  = "<INVALID>";
+            offset       = m_LARGE_NUMBER;
+        }
+
+        op             = Operator.no_operator;
+            
+        m_counter++;
+		
+	}
+}

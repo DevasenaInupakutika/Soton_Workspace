@@ -1,0 +1,8 @@
+package uk.software.blogreader;
+
+import java.lang.Math.*;
+
+public class CountdownNumber {
+
+	
+}

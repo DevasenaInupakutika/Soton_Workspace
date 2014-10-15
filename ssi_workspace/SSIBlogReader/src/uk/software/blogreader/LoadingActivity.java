@@ -8,6 +8,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
@@ -25,6 +29,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,9 +37,7 @@ import android.widget.Toast;
 
 public class LoadingActivity extends Activity{
 	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
-	private int fPos;
 	RSSFeed feed;
-	String htmlString;
 	String fileName;
 	
 	
@@ -99,7 +102,7 @@ public class LoadingActivity extends Activity{
 				alert.show();
 			} else {
 
-				// No connectivty and file exists: Read feed from the File
+				// No connectivity and file exists: Read feed from the File
 				Toast toast = Toast.makeText(this,
 						"No connectivity! Reading last update...",
 						Toast.LENGTH_LONG);
@@ -175,10 +178,10 @@ public class LoadingActivity extends Activity{
 			// Obtain feed
 			DOMParser myParser = new DOMParser();
 			feed = myParser.parseXml(RSSFEEDURL);
-			htmlString = myParser.parseHtml(feed.getItem(fPos).getLink());
-			
-			if (feed != null && feed.getItemCount() > 0 && htmlString != null)
+
+			if (feed != null && feed.getItemCount() > 0)
 				WriteFeed(feed);
+			
 			return null;
 
 		}
@@ -201,7 +204,8 @@ public class LoadingActivity extends Activity{
 		try {
 			fOut = openFileOutput(fileName, MODE_PRIVATE);
 			osw = new ObjectOutputStream(fOut);
-			osw.writeObject(data);
+			
+		    osw.writeObject(data);
 			osw.flush();
 		}
 

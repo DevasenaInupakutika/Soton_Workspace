@@ -4,7 +4,7 @@
 		<item value="263" key="DIALOG_WIDTH"/>
 		<item value="238" key="DIALOG_Y_ORIGIN"/>
 		<item value="399" key="DIALOG_HEIGHT"/>
-		<item value="926" key="DIALOG_X_ORIGIN"/>
+		<item value="761" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="5" key="selection"/>
+		<item value="ui" key="selection"/>
 		<list key="findhistory">
-			<item value="5"/>
-			<item value="desc"/>
-			<item value="onDestroy"/>
-			<item value="onStop"/>
-			<item value="webview"/>
 			<item value="tracker"/>
-			<item value="connec"/>
-			<item value="pos"/>
+			<item value="UI"/>
+			<item value="UA"/>
+			<item value="Image"/>
+			<item value="setBitmapImage"/>
+			<item value="Bitmap"/>
+			<item value="viewPager"/>
+			<item value="retainFragment"/>
 		</list>
 		<list key="replacehistory">
 		</list>

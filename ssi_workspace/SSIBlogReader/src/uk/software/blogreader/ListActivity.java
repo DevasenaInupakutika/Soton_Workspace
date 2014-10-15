@@ -8,6 +8,7 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import uk.software.blogreader.R;
 
@@ -45,8 +46,8 @@ public class ListActivity extends Activity {
 	CustomListAdapter adapter;
 	String Uri = null;
 	private static final String TAG = "MyActivity";
-	GoogleAnalyticsTracker tracker; //Using GA Tracker
-    private EasyTracker easyTracker = null; //Using Easy Tracker
+	//GoogleAnalyticsTracker tracker; //Using GA Tracker
+    //private EasyTracker easyTracker = null; //Using Easy Tracker
     
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onStart()
@@ -55,7 +56,7 @@ public class ListActivity extends Activity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this);
+		//EasyTracker.getInstance(this).activityStart(this);
 		
 	}
 
@@ -66,7 +67,7 @@ public class ListActivity extends Activity {
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);
+		//EasyTracker.getInstance(this).activityStop(this);
 	}
 
 	@Override
@@ -91,8 +92,7 @@ public class ListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.feed_list);
-
-		easyTracker = EasyTracker.getInstance(ListActivity.this);
+		//easyTracker = EasyTracker.getInstance(ListActivity.this);
 		
 		myApp = getApplication();
 
@@ -108,11 +108,11 @@ public class ListActivity extends Activity {
 		lv.setAdapter(adapter);
 	
 		// Start your statistics tracking
-        tracker = GoogleAnalyticsTracker.getInstance();     
+        //tracker = GoogleAnalyticsTracker.getInstance();     
       
-        tracker.start("UA-46208653-1", this); // Start the tracker in manual dispatch mode.
-        tracker.start("UA-46208653-1", 30, this);   //Tracker started  with a dispatch interval of 5 seconds for real-time tracking
-		tracker.trackPageView("/SSI Blog Page");
+        //tracker.start("UA-46208653-1", this); // Start the tracker in manual dispatch mode.
+        //tracker.start("UA-46208653-1", 30, this);   //Tracker started  with a dispatch interval of 5 seconds for real-time tracking
+		//tracker.trackPageView("/SSI Blog Page");
 		
 		// Set on item click listener to the ListView
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -124,10 +124,10 @@ public class ListActivity extends Activity {
 				int pos = arg2;
 				
 				// actions to be performed when a list item clicked
-			    tracker.trackPageView(feed.getItem(pos).getLink());   
-		        tracker.trackEvent("Clicks","ListItem", "Blog Clicked", 0);
+			    //tracker.trackPageView(feed.getItem(pos).getLink());   
+		        //tracker.trackEvent("Clicks","ListItem", "Blog Clicked", 0);
 		        
-		        easyTracker.send(MapBuilder.createEvent("Click", "List Item Clicked", feed.getItem(pos).getLink(), null).build());
+		        //easyTracker.send(MapBuilder.createEvent("Click", "List Item Clicked", feed.getItem(pos).getLink(), null).build());
 		        
 				Bundle bundle = new Bundle();
 				bundle.putSerializable("feed", feed);
@@ -156,11 +156,9 @@ public class ListActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		adapter.imageLoader.clearCache();
-		adapter.notifyDataSetChanged();
-		
-		tracker.dispatch();
-		tracker.stop();
+		adapter.notifyDataSetChanged();		
+		//tracker.dispatch();
+		//tracker.stop();
 	}
 
 	class CustomListAdapter extends BaseAdapter {
@@ -204,22 +202,23 @@ public class ListActivity extends Activity {
 
 			// Initialize the views in the layout
 			ImageView iv = (ImageView) listItem.findViewById(R.id.thumb);
+			
 			// set the ImageView opacity to 50%
 			TextView tvTitle = (TextView) listItem.findViewById(R.id.title);
 			TextView tvDate = (TextView) listItem.findViewById(R.id.date);
 
 			Log.v(TAG, "Image Link is:"+feed.getItem(pos).getImage());
 			
-			if (feed.getItem(pos).getVideo() != null)
+			/*if (feed.getItem(pos).getVideo() != null)
 			{
 			  Uri = "http:"+feed.getItem(pos).getVideo();
 			  Log.v(TAG,"Video link is:"+Uri);
 			}
 			else
-				Uri = feed.getItem(pos).getVideo();
+				Uri = feed.getItem(pos).getVideo();*/
 			
 			// Set the views in the layout
-			if( (feed.getItem(pos).getImage() == null) && (Uri != null)){
+			/*if( (feed.getItem(pos).getImage() == null) && (Uri != null)){
 				
 				
 			Bitmap thumbnail = ThumbnailUtils.createVideoThumbnail(feed.getItem(pos).getVideo(),MediaStore.Video.Thumbnails.MICRO_KIND);
@@ -241,10 +240,14 @@ public class ListActivity extends Activity {
 				
 			 if( (feed.getItem(pos).getImage() != null) && (Uri == null))	
 			    imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
-			}
+			}*/
+			
+			imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
+			
+		
 			tvTitle.setText(feed.getItem(pos).getTitle());
 			tvDate.setText(feed.getItem(pos).getDate().substring(4, 16));
-
+            
 			return listItem;
 		}
 

@@ -1,8 +1,0 @@
-package uk.software.blogreader.test;
-
-import android.test.ActivityInstrumentationTestCase2;
-
-public class ListActivityTest extends
-		ActivityInstrumentationTestCase2<ListActivity> {
-
-}

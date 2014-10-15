@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="480,442" key="UserLibraryLoadSaveDialog.size"/>
-	<item value="/Users/user/Downloads/clicktracker-1/libs" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/user/Downloads" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
+	<item value="/Users/user/Work/countdown_numbers" key="org.eclipse.jdt.ui.last.external.project"/>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
@@ -74,7 +76,7 @@
 	</section>
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>
-		<item value="false" key="create_main"/>
+		<item value="true" key="create_main"/>
 		<item value="false" key="create_unimplemented"/>
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">

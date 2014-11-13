@@ -13,11 +13,18 @@ import uk.software.blogreader.image.ImageLoader;
 import uk.software.parser.*;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +33,8 @@ import android.webkit.WebView;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebSettings.PluginState;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -46,7 +55,6 @@ public class DetailFragment extends Fragment {
 	StringBuffer sb;
 	WebView desc;
 	
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,12 +66,13 @@ public class DetailFragment extends Fragment {
 	
 	}
 
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater
 				.inflate(R.layout.detail_fragment, container, false);
-
+		
 		// Initialise views
 		TextView title = (TextView) view.findViewById(R.id.title);
 		ImageView iv = (ImageView) view.findViewById(R.id.iv); 
@@ -82,6 +91,9 @@ public class DetailFragment extends Fragment {
 		ws.setPluginState(PluginState.ON);
 		ws.setJavaScriptEnabled(true);
 		
+		ws.setSupportZoom(true);
+		ws.setBuiltInZoomControls(true);
+		
 		ws.setAllowFileAccess(true);
 		ws.setDomStorageEnabled(true);
 		ws.setAppCacheEnabled(true);
@@ -96,8 +108,8 @@ public class DetailFragment extends Fragment {
 		//new AsyncLoadLinkFeed().execute(); //Uncomment this statement when using AsyncTask and calling in background
 		
 		Log.v(TAG, "Detailed Activity Image Link is:"+fFeed.getItem(fPos).getImage());
-		imageLoader.DisplayImage(fFeed.getItem(fPos).getImage(), iv);
 		
+		imageLoader.DisplayImage(fFeed.getItem(fPos).getImage(), iv,400,300);
 		ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 		
 		//Method I which caches only few images (might be ones which are accessed when in online mode)

@@ -6,5 +6,5 @@
     <string name="date">date</string>
     <string name="desc">Description goes here!</string>
     <string name="title_activity_list"><b>Software Sustainability Institute</b></string>
-
+    <string name="close">Close</string>
 </resources>

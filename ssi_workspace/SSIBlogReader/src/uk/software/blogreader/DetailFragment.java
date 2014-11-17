@@ -8,6 +8,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import pl.polidea.view.ZoomView;
+
 import uk.software.blogreader.R;
 import uk.software.blogreader.image.ImageLoader;
 import uk.software.parser.*;
@@ -20,6 +22,7 @@ import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -82,24 +85,27 @@ public class DetailFragment extends Fragment {
 		ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
 		sv.setVerticalFadingEdgeEnabled(true);
 
+		//int width = getActivity().getApplicationContext().getResources().getDisplayMetrics().widthPixels;
+		//int height = getActivity().getApplicationContext().getResources().getDisplayMetrics().heightPixels;
+		
 		// Set webview properties
 		WebSettings ws = desc.getSettings();
 		
 		desc.setHorizontalScrollBarEnabled(true);
 		ws.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+		ws.setAppCacheMaxSize( 5 * 1024 * 1024 ); // 5MB
+		ws.setAppCachePath( getActivity().getApplicationContext().getCacheDir().getAbsolutePath());
+		ws.setAllowFileAccess(true);
+		ws.setAppCacheEnabled(true);
+		ws.setJavaScriptEnabled(true);
+		ws.setCacheMode( WebSettings.LOAD_DEFAULT ); // load online by default
 		ws.setLightTouchEnabled(false);
 		ws.setPluginState(PluginState.ON);
-		ws.setJavaScriptEnabled(true);
 		
 		ws.setSupportZoom(true);
-		ws.setBuiltInZoomControls(true);
-		
-		ws.setAllowFileAccess(true);
+		ws.setBuiltInZoomControls(true);  //Zoom in/ out when pinched 
 		ws.setDomStorageEnabled(true);
-		ws.setAppCacheEnabled(true);
-		//ws.setAppCachePath( getActivity().getApplicationContext().getCacheDir().getAbsolutePath());
 		
-	
 		// Set the views
 		title.setText(fFeed.getItem(fPos).getTitle());
 		
@@ -110,7 +116,17 @@ public class DetailFragment extends Fragment {
 		Log.v(TAG, "Detailed Activity Image Link is:"+fFeed.getItem(fPos).getImage());
 		
 		imageLoader.DisplayImage(fFeed.getItem(fPos).getImage(), iv,400,300);
-		ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+		
+		iv.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				v.getId(); //It will give the image id
+			}
+		} );
+		
+		//ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 		
 		//Method I which caches only few images (might be ones which are accessed when in online mode)
 		//load Online
@@ -129,7 +145,7 @@ public class DetailFragment extends Fragment {
 		}*/
 		
 		//Method II
-		if(connMgr.getActiveNetworkInfo() == null || !connMgr.getActiveNetworkInfo().isConnected()){
+		/*if(connMgr.getActiveNetworkInfo() == null || !connMgr.getActiveNetworkInfo().isConnected()){
 		
 			ws.setAppCachePath( getActivity().getApplicationContext().getCacheDir().getAbsolutePath());
 			ws.setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -139,9 +155,23 @@ public class DetailFragment extends Fragment {
 			
 			ws.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
 			desc.loadDataWithBaseURL("file:///android_asset/",fFeed.getItem(fPos).getDescription(), "text/html", "UTF-8", null );
-		}		
+		}*/
+		
+		//Method III
+		if ( !isNetworkAvailable() ) { // loading offline
+		    ws.setCacheMode( WebSettings.LOAD_CACHE_ELSE_NETWORK );
+		}
+		desc.loadDataWithBaseURL("file:///android_asset/",fFeed.getItem(fPos).getDescription(), "text/html", "UTF-8", null );
 		
 		return view;
+	}
+	
+	private boolean isNetworkAvailable() {
+		// TODO Auto-generated method stub
+		ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService( Context.CONNECTIVITY_SERVICE );
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null;
+		
 	}
 /*	
 	private class AsyncLoadLinkFeed extends AsyncTask<Void, Void, Void>{
@@ -194,4 +224,7 @@ public class DetailFragment extends Fragment {
 		
 		
 	}*/
+
+
+	
 }

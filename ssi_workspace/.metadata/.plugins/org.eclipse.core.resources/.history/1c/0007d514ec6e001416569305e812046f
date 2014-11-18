@@ -1,0 +1,7 @@
+package uk.software.blogreader;
+
+public class ImagePopUpActivity extends Activity {
+
+	
+
+}

@@ -14,7 +14,11 @@ import uk.software.blogreader.R;
 import uk.software.blogreader.image.ImageLoader;
 import uk.software.parser.*;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -31,6 +35,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebSettings.LayoutAlgorithm;
@@ -78,15 +83,15 @@ public class DetailFragment extends Fragment {
 		
 		// Initialise views
 		TextView title = (TextView) view.findViewById(R.id.title);
-		ImageView iv = (ImageView) view.findViewById(R.id.iv); 
+		final ImageView iv = (ImageView) view.findViewById(R.id.iv); 
 		desc = (WebView) view.findViewById(R.id.desc);
 
 		// Enable the vertical fading edge (by default it is disabled)
 		ScrollView sv = (ScrollView) view.findViewById(R.id.sv);
 		sv.setVerticalFadingEdgeEnabled(true);
 
-		//int width = getActivity().getApplicationContext().getResources().getDisplayMetrics().widthPixels;
-		//int height = getActivity().getApplicationContext().getResources().getDisplayMetrics().heightPixels;
+		//final int width = getActivity().getApplicationContext().getResources().getDisplayMetrics().widthPixels;
+		//final int height = getActivity().getApplicationContext().getResources().getDisplayMetrics().heightPixels;
 		
 		// Set webview properties
 		WebSettings ws = desc.getSettings();
@@ -122,9 +127,13 @@ public class DetailFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				v.getId(); //It will give the image id
+				loadPhoto(iv, 400, 400); //It will give the image id
 			}
+			
+			
+			
 		} );
+		
 		
 		//ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 		
@@ -173,6 +182,47 @@ public class DetailFragment extends Fragment {
 	    return activeNetworkInfo != null;
 		
 	}
+	
+	private void loadPhoto(ImageView imageView,int width, int height){
+
+		ImageView tempImageView = imageView;
+		
+		AlertDialog.Builder imageDialog = new AlertDialog.Builder(this.getActivity());
+		
+		// (That new View is just there to have something inside the dialog that can grow big enough to cover the whole screen.)
+		/*Dialog d =imageDialog.setView(new View(this.getActivity())).create();
+		
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(d.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+		d.show();
+		d.getWindow().setAttributes(lp);*/
+		
+		LayoutInflater inflater = (LayoutInflater) this.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
+		View layout = inflater.inflate(R.layout.imagepop, (ViewGroup) this.getActivity().findViewById(R.id.layout_root));
+		
+		ImageView image = (ImageView) layout.findViewById(R.id.fullimage);
+		//image.setImageDrawable(tempImageView.getDrawable());
+		imageLoader.DisplayImage(fFeed.getItem(fPos).getImage(),image,width,height);
+		
+		imageDialog.setView(layout);
+		
+		imageDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.dismiss();
+				
+			}
+		});
+		imageDialog.create();
+		imageDialog.show();
+		
+	}
+	
 /*	
 	private class AsyncLoadLinkFeed extends AsyncTask<Void, Void, Void>{
 

@@ -426,20 +426,21 @@ containing a value of this type.
     }
     public static final class id {
         public static final int book_now=0x7f080010;
-        public static final int btclose=0x7f080021;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
         public static final int buy_with_google=0x7f08000e;
         public static final int classic=0x7f080011;
-        public static final int date=0x7f080023;
+        public static final int date=0x7f080024;
         public static final int desc=0x7f08001e;
+        public static final int fullimage=0x7f080021;
         public static final int grayscale=0x7f080012;
         public static final int holo_dark=0x7f080005;
         public static final int holo_light=0x7f080006;
         public static final int hybrid=0x7f080004;
         public static final int imageView=0x7f080016;
+        public static final int imagepop_placename=0x7f080022;
         public static final int iv=0x7f08001d;
-        public static final int ivcarnes=0x7f080020;
+        public static final int layout_root=0x7f080020;
         public static final int linearLayout1=0x7f080017;
         public static final int listView=0x7f08001f;
         public static final int match_parent=0x7f08000c;
@@ -458,7 +459,7 @@ containing a value of this type.
         public static final int terrain=0x7f080003;
         public static final int textView=0x7f080019;
         public static final int textview1=0x7f080015;
-        public static final int thumb=0x7f080022;
+        public static final int thumb=0x7f080023;
         public static final int title=0x7f08001b;
         public static final int wrap_content=0x7f08000d;
     }

@@ -1,9 +1,0 @@
-package uk.software.blogreader;
-
-import android.app.Activity;
-
-public class ImagePopUpActivity extends Activity {
-
-	
-
-}

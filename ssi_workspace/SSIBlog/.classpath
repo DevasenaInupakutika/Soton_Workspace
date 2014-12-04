@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="/Users/user/Desktop/Disk Image New Installs/adt-bundle-mac-x86_64-20131030/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar"/>
+	<classpathentry kind="lib" path="/Users/user/Desktop/Disk Image New Installs/Android APP development/Simple RSS Reader - 2 (offline+swipe)./libs/jsoup-1.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/user/Desktop/Disk Image New Installs/Android APP development/jsoup-1.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/user/Desktop/Disk Image New Installs/Android APP development/libGoogleAnalytics.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/user/Desktop/Disk Image New Installs/Android APP development/libGoogleAnalyticsServices.jar"/>
+	<classpathentry kind="lib" path="/Users/user/Downloads/disklrucache-1.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/user/Downloads/httpresponsecache-1.0.0.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

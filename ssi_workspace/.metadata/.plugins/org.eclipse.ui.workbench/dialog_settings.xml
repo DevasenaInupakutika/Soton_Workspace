@@ -17,15 +17,17 @@
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="7" key="DIALOG_Y_ORIGIN"/>
+		<item value="-29" key="DIALOG_Y_ORIGIN"/>
 		<item value="0" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="ZipFileImportWizard">
 		<item value="true" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/user/Desktop/Disk Image New Installs/adt-bundle-mac-x86_64-20131030/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar"/>
+			<item value="/Users/user/Desktop/Disk Image New Installs/Android APP development/libGoogleAnalyticsServices.jar"/>
+			<item value="/Users/user/Desktop/Disk Image New Installs/Android APP development/libGoogleAnalytics.jar"/>
+			<item value="/Users/user/Desktop/Disk Image New Installs/Android APP development/jsoup-1.7.1.jar"/>
 			<item value="/Users/user/Downloads/universal-image-loader-1.9.3.jar"/>
-			<item value="/Users/user/Work/Soton_Workspace/ssi_workspace/android-news-reader-6af7fcaf421c.zip"/>
-			<item value="/Users/user/Downloads/adapter-1.0.1.jar"/>
 		</list>
 	</section>
 	<section name="NewWizardAction">

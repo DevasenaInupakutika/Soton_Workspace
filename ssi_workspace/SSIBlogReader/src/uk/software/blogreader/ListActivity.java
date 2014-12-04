@@ -1,15 +1,5 @@
 package uk.software.blogreader;
 
-import java.util.HashMap;
-
-import com.google.android.apps.analytics.GoogleAnalyticsTracker;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
 import uk.software.blogreader.R;
 
 import uk.software.blogreader.image.*;
@@ -19,12 +9,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.media.ThumbnailUtils;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -48,10 +34,7 @@ public class ListActivity extends Activity {
 	private static final String TAG = "MyActivity";
 	//GoogleAnalyticsTracker tracker; //Using GA Tracker
     //private EasyTracker easyTracker = null; //Using Easy Tracker
-    
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onStart()
-	 */
+  
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -60,9 +43,7 @@ public class ListActivity extends Activity {
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onStop()
-	 */
+
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
@@ -208,39 +189,6 @@ public class ListActivity extends Activity {
 			TextView tvDate = (TextView) listItem.findViewById(R.id.date);
 
 			Log.v(TAG, "Image Link is:"+feed.getItem(pos).getImage());
-			
-			/*if (feed.getItem(pos).getVideo() != null)
-			{
-			  Uri = "http:"+feed.getItem(pos).getVideo();
-			  Log.v(TAG,"Video link is:"+Uri);
-			}
-			else
-				Uri = feed.getItem(pos).getVideo();*/
-			
-			// Set the views in the layout
-			/*if( (feed.getItem(pos).getImage() == null) && (Uri != null)){
-				
-				
-			Bitmap thumbnail = ThumbnailUtils.createVideoThumbnail(feed.getItem(pos).getVideo(),MediaStore.Video.Thumbnails.MICRO_KIND);
-		    Matrix matrix = new Matrix();
-		   
-			if(thumbnail != null){
-			
-			   Bitmap bitmap = Bitmap.createBitmap(thumbnail, 0, 0,
-				            thumbnail.getWidth(), thumbnail.getHeight(), matrix, true);
-		
-               iv.setImageBitmap(bitmap);
-            
-			}
-			 else{
-				 imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
-			 }
-			}
-			else {
-				
-			 if( (feed.getItem(pos).getImage() != null) && (Uri == null))	
-			    imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv);
-			}*/
 			
 			imageLoader.DisplayImage(feed.getItem(pos).getImage(), iv, iv.getMeasuredWidth(), iv.getMeasuredHeight());
 			

@@ -81,7 +81,8 @@ public class DetailActivity extends FragmentActivity{
 	    //Get a tracker (should auto-report) for sending a screen view
 		//Tracker t = ((MyApplication) getApplication()).getTracker(MyApplication.TrackerName.APP_TRACKER);
 		//t.send(new HitBuilders.AppViewBuilder().build());
-	  	Tracker t = GoogleAnalytics.getInstance((MyApplication) getApplicationContext()).newTracker("UA-46208653-2");
+	  	Tracker t = GoogleAnalytics.getInstance((MyApplication) getApplicationContext()).newTracker("UA-46208653-1"); //For testing and debugging
+	  	//Tracker t = GoogleAnalytics.getInstance((MyApplication) getApplicationContext()).newTracker("UA-46208653-1");
 	  	t.set(Fields.SCREEN_NAME, "DetailActivity");
 	  	t.send(new HitBuilders.EventBuilder().setCategory("UA").setAction("click").setLabel(feed.getItem(pos).getLink()).build());
 		

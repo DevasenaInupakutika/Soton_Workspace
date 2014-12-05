@@ -1,0 +1,10 @@
+package uk.ac.software.parser;
+
+public class DiffRSSItemParser {
+	
+	private RSSFeed _feed = new RSSFeed();
+	String htmlString;
+	
+	
+
+}

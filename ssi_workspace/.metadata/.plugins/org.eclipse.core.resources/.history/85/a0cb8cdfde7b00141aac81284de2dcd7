@@ -1,0 +1,5 @@
+package uk.ac.software.parser;
+
+public class DiffRSSItemParser {
+
+}

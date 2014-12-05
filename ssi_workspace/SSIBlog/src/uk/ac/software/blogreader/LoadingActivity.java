@@ -1,10 +1,14 @@
 package uk.ac.software.blogreader;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
@@ -26,18 +30,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import uk.ac.software.parser.DOMParser;
+import uk.ac.software.parser.DiffRSSItemParser;
 import uk.ac.software.parser.RSSFeed;
 import uk.ac.software.parser.RSSItemParser;
 
 public class LoadingActivity extends Activity{
 	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
 	RSSFeed feed = null;
+	RSSFeed rem_oldfeed = null;
 	String cache_date;
 	String RSS_date;
 	RSSFeed first_feed = null;
+	RSSFeed diff_feed = null;
+	RSSFeed final_feed = null;
 	String fileName;
+	String fileNew;
     DOMParser myParser = new DOMParser();
     RSSItemParser myRSSItemParser = new RSSItemParser();
+    DiffRSSItemParser mydiff = new DiffRSSItemParser();
     private static final String TAG = "MyActivity";
  
 	
@@ -108,8 +118,10 @@ public class LoadingActivity extends Activity{
 		protected Void doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			fileName = "SSIRSSFeed.blog";
+			fileNew = "RSSFeedFinal.blog";
 
 			File feedFile = getBaseContext().getFileStreamPath(fileName);
+			File feed_diff = getBaseContext().getFileStreamPath(fileNew);
 
 			ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -295,8 +307,16 @@ public class LoadingActivity extends Activity{
 			          toast.show();
 			    }
 			       });
-		           new AsyncLoadXMLFeed().execute(); //Logic needs to be changed to just update those which are added.
-
+		           //new AsyncLoadXMLFeed().execute(); //Logic needs to be changed to just update those which are added.
+			       
+			       //List Activity update Logic based on just fetching updated Blog posts
+                   diff_feed = mydiff.parseXml(RSSFEEDURL, cache_date);
+                   rem_oldfeed = ReadFeed(fileName);
+                   AppendFeed(diff_feed,rem_oldfeed);
+                   
+                   final_feed = ReadFeed(fileNew);
+                   startListActivity(final_feed);
+                   
 			       }
 	                }
 			                catch(Exception e){
@@ -374,6 +394,39 @@ public class LoadingActivity extends Activity{
       			startListActivity(feed);
       		}
       	}
+      	
+      	//Method to append the current updated feed on top of already existing feedFile
+      	
+      	private void AppendFeed(RSSFeed data,RSSFeed data_old){
+      		FileOutputStream fOut = null;
+      		ObjectOutputStream osw = null;
+
+      		try {
+      			fOut = openFileOutput(fileNew, MODE_PRIVATE);
+      			osw = new ObjectOutputStream(fOut);
+      			
+      		    osw.writeObject(data);
+      		    osw.writeObject(data_old);
+      		    
+      			osw.flush();
+      		}
+
+      		catch (Exception e) {
+      			e.printStackTrace();
+      		}
+
+      		finally {
+      			try {
+      				fOut.close();
+      			} catch (IOException e) {
+      				e.printStackTrace();
+      			}
+      		}
+      		
+      		
+      		
+      	}	
+      	
 
       	// Method to write the feed to the File
       	private void WriteFeed(RSSFeed data) {

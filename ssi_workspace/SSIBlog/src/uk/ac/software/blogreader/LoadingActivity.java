@@ -1,17 +1,21 @@
 package uk.ac.software.blogreader;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -32,7 +36,9 @@ import android.widget.Toast;
 import uk.ac.software.parser.DOMParser;
 import uk.ac.software.parser.DiffRSSItemParser;
 import uk.ac.software.parser.RSSFeed;
+import uk.ac.software.parser.RSSItem;
 import uk.ac.software.parser.RSSItemParser;
+import uk.ac.software.parser.SAXSSIParser;
 
 public class LoadingActivity extends Activity{
 	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
@@ -42,10 +48,11 @@ public class LoadingActivity extends Activity{
 	String RSS_date;
 	RSSFeed first_feed = null;
 	RSSFeed diff_feed = null;
-	RSSFeed final_feed = null;
+	//RSSFeed final_feed = null;
 	String fileName;
 	String fileNew;
     DOMParser myParser = new DOMParser();
+    SAXSSIParser mySAXParser = new SAXSSIParser();
     RSSItemParser myRSSItemParser = new RSSItemParser();
     DiffRSSItemParser mydiff = new DiffRSSItemParser();
     private static final String TAG = "MyActivity";
@@ -129,64 +136,37 @@ public class LoadingActivity extends Activity{
 			if ((conMgr.getActiveNetworkInfo() == null) && (!feedFile.exists()))
 
 			{
-
-
 			     // No connectivity & Feed file doesn't exist: Show alert to exit & check for connectivity
-
-
 			      runOnUiThread(new Runnable(){
-
-
-			        @Override
-
-
+			      @Override
 			      public void run() {
-
-
-			                     // TODO Auto-generated method stub
-
-
+		          // TODO Auto-generated method stub
 			      AlertDialog.Builder builder = new AlertDialog.Builder(LoadingActivity.this);
-
-
 			      builder.setMessage(
-
 
 			      "Unable to reach server, \nPlease check your connectivity.")
 
-
 			      .setTitle("SSI Blog")
-
 
 			      .setCancelable(false)
 
-
 			      .setPositiveButton("Exit",
-
 
 			      new DialogInterface.OnClickListener() {
 
-
 			      @Override
-
 
 			      public void onClick(DialogInterface dialog,
 
-
 			      int id) {
-
 
 			      finish();
 
-
 			      }
-
 
 			      });
 
-
 			      AlertDialog alert = builder.create();
-
 
 			      alert.show();
 
@@ -228,8 +208,6 @@ public class LoadingActivity extends Activity{
 
 
 			});
-
-
 
 			      feed = ReadFeed(fileName);
 
@@ -302,8 +280,8 @@ public class LoadingActivity extends Activity{
 
 			    @Override
 			    public void run() {
-			    // TODO Auto-generated method stub
-			    Toast toast = Toast.makeText(LoadingActivity.this,"Updating cache file",Toast.LENGTH_LONG);
+			          // TODO Auto-generated method stub
+			          Toast toast = Toast.makeText(LoadingActivity.this,"Updating cache file",Toast.LENGTH_LONG);
 			          toast.show();
 			    }
 			       });
@@ -312,13 +290,22 @@ public class LoadingActivity extends Activity{
 			       //List Activity update Logic based on just fetching updated Blog posts
                    diff_feed = mydiff.parseXml(RSSFEEDURL, cache_date);
                    rem_oldfeed = ReadFeed(fileName);
-                   AppendFeed(diff_feed,rem_oldfeed);
+                  
+                  for (int i=0;i<rem_oldfeed.getItemCount();i++){
+                	   
+                	diff_feed.addItem(rem_oldfeed.getItem(i));
+                	
+                  }
+                	   
+                   //AppendFeed(diff_feed,rem_oldfeed);
                    
-                   final_feed = ReadFeed(fileNew);
-                   startListActivity(final_feed);
+                   //Storing the final appended feed into cache file or updating cache file
+                   WriteFeed(diff_feed);
+                   
+                   startListActivity(diff_feed);
                    
 			       }
-	                }
+	            }
 			                catch(Exception e){
 
 			             e.printStackTrace();
@@ -350,7 +337,14 @@ public class LoadingActivity extends Activity{
       				public void run() {
       					// TODO Auto-generated method stub    				
       					while(mProgressStatus < 100){
-      						mProgressStatus += 1;
+      						
+      						try{
+      							Thread.sleep(1000);
+      						}
+      						catch(InterruptedException e){
+      							e.printStackTrace();
+      						}	
+      					    mProgressStatus += 1;
       						
       						//Update Progress Bar
       						mHandler.post(new Runnable(){
@@ -366,28 +360,62 @@ public class LoadingActivity extends Activity{
       							
       							
       						});
-      						try{
-      							Thread.sleep(1000);
-      						}
-      						catch(InterruptedException e){
-      							e.printStackTrace();
-      						}
+      						
       					}
       					
       				}
       				
       			}).start();
-		
-      		// Obtain feed
-	       feed = myParser.parseXml(RSSFEEDURL);
-	      		
-	      	if (feed != null && feed.getItemCount() > 0)
-	      		WriteFeed(feed);
+      		 //Simulating time-consuming task of accessing data from Internet and XML parsing to render application activity 
+			    feed = myParser.parseXml(RSSFEEDURL);
+				//mySAXParser.get(RSSFEEDURL);
+				// Log.i(TAG, "TAG: " + mySAXParser.feeds.size());
+				
+				/*for (int i=0;i<mySAXParser.feeds.size();i++){
+					RSSItem item = mySAXParser.feeds.get(i);
+				    feed.addItem(item);
+				   
+				}*/
+			    //Log.i(TAG, "TAG: " + feed.getItemCount());
+      			/*URL url = null;
+      			
+      			try {
+
+      				SAXParserFactory spf = SAXParserFactory.newInstance();
+      				SAXParser sp = spf.newSAXParser();
+      				XMLReader xr = sp.getXMLReader();
+
+      				url = new URL(RSSFEEDURL);
+      				SAXSSIParser mySp = new SAXSSIParser();
+
+      				xr.setContentHandler(mySp);
+      				xr.parse(new InputSource(url.openStream()));
+
+
+      				Log.e("ASYNC", "PARSING FINISHED");
+      				
+      				for(RSSItem item: mySp.getBlogList()){
+      					feed.addItem(item);
+      				}
+
+      			} catch (IOException e) {
+      				Log.e("RSS Handler IO", e.getMessage() + " >> " + e.toString());
+      			} catch (SAXException e) {
+      				Log.e("RSS Handler SAX", e.toString());
+      				e.printStackTrace();
+      			} catch (ParserConfigurationException e) {
+      				Log.e("RSS Handler Parser Config", e.toString());
+      			}*/
+
+    	      	if (feed != null && feed.getItemCount() > 0)
+    	      		WriteFeed(feed);		
       	return null;
 
       		}
       		
-    		@Override
+      		
+  		
+   	@Override
       		protected void onPostExecute(Void result) {
       			super.onPostExecute(result);
 

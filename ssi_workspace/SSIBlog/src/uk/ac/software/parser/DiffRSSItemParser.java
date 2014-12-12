@@ -81,12 +81,18 @@ public class DiffRSSItemParser {
 			// Get all <item> tags.
 			NodeList nl = doc.getElementsByTagName("item");
 			for (int i = 0; _feed.getItem(i).getDate().substring(0, 25).equals(ts); i++) {
+				
+				if(_feed.getItem(i).getDate().substring(0, 25).equals(ts))
+				{
+					break;
+				}	
+				else{
 				Node currentNode = nl.item(i);
 				RSSItem _item = new RSSItem();
 
 				NodeList nchild = currentNode.getChildNodes();
 				int clength = nchild.getLength();
-
+				
 				// Get the required elements from each Item
 				for (int j = 1; j < clength; j = j + 2) {
 
@@ -116,10 +122,10 @@ public class DiffRSSItemParser {
 							// empty string
 							String formatedDate = theString.replace(" +0000",
 									"");
-							_item.setDate(formatedDate);
+							_item.setDate(formatedDate);			
 						}
 						
-else if ("description".equals(nodeName)) {
+                        else if ("description".equals(nodeName)) {
 							
 							//Parse the html description to get blog content without 'Read More'	
 						    org.jsoup.nodes.Document htmlDoc = Jsoup.parse(htmlString);
@@ -174,7 +180,9 @@ else if ("description".equals(nodeName)) {
 				_feed.addItem(_item);
 			}
 
-		} 
+				}
+		}
+				
 		}catch (Exception e) {
 		}
 

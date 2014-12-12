@@ -1,9 +1,9 @@
 package uk.ac.software.parser;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
-
 import uk.ac.software.parser.RSSItem;
 
 public class RSSFeed implements Serializable{
@@ -12,10 +12,10 @@ public class RSSFeed implements Serializable{
 	private List<RSSItem> _itemlist;
 
 	RSSFeed() {
-		_itemlist = new Vector<RSSItem>(0);
+		_itemlist = new ArrayList<RSSItem>();
 	}
 
-	void addItem(RSSItem item) {
+	public void addItem(RSSItem item) {
 		_itemlist.add(item);
 		_itemcount++;
 	}
@@ -26,6 +26,10 @@ public class RSSFeed implements Serializable{
 
 	public int getItemCount() {
 		return _itemcount;
+	}
+	
+	public Iterator<RSSItem> iterator(){
+		return _itemlist.iterator();
 	}
 
 }

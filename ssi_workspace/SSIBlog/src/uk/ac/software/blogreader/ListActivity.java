@@ -162,7 +162,6 @@ public class ListActivity extends Activity{
 
 		@Override
 		public int getCount() {
-
 			// Set the total list item count
 			return feed.getItemCount();
 		}

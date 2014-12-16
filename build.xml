@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="ssi_workspace" default="all" basedir=".">
+<project name="ssi_workspace/SSIBlog" default="all" basedir=".">
 
 <target name="all" description="Builds the whole project">
     <echo>Doing all</echo>

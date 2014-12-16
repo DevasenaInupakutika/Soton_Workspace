@@ -166,8 +166,6 @@ public class DOMParser {
 							    _item.setImage(imgEle.attr("src"));
 							   
 						}
-						   
-						
 
 					}
 				}

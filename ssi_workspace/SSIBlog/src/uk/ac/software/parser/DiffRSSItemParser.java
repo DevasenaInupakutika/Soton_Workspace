@@ -17,7 +17,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-
 import uk.ac.software.blogreader.image.ImageLoader;
 
 public class DiffRSSItemParser {
@@ -27,6 +26,7 @@ public class DiffRSSItemParser {
 	String htmlString;
 	public ImageLoader imageLoader;
 	private static StringBuilder sb1;
+	String blog_date;
 	
 	public String parseHtml(String link){
 		
@@ -80,13 +80,8 @@ public class DiffRSSItemParser {
 
 			// Get all <item> tags.
 			NodeList nl = doc.getElementsByTagName("item");
-			for (int i = 0; _feed.getItem(i).getDate().substring(0, 25).equals(ts); i++) {
+			loop1: for (int i = 0;i < 20; i++) {
 				
-				if(_feed.getItem(i).getDate().substring(0, 25).equals(ts))
-				{
-					break;
-				}	
-				else{
 				Node currentNode = nl.item(i);
 				RSSItem _item = new RSSItem();
 
@@ -122,7 +117,10 @@ public class DiffRSSItemParser {
 							// empty string
 							String formatedDate = theString.replace(" +0000",
 									"");
-							_item.setDate(formatedDate);			
+							_item.setDate(formatedDate);
+							
+							if(ts.equals(formatedDate.substring(0, 25))){break loop1;}
+									
 						}
 						
                         else if ("description".equals(nodeName)) {
@@ -175,13 +173,13 @@ public class DiffRSSItemParser {
 						}
 					      
 				}
-
-				// add item to the list
-				_feed.addItem(_item);
+			
 			}
-
-				}
-		}
+				 // add item to the list
+				 _feed.addItem(_item);
+				
+                    
+			}
 				
 		}catch (Exception e) {
 		}

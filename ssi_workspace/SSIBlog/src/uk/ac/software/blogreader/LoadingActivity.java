@@ -128,7 +128,7 @@ public class LoadingActivity extends Activity{
 			fileNew = "RSSFeedFinal.blog";
 
 			File feedFile = getBaseContext().getFileStreamPath(fileName);
-			File feed_diff = getBaseContext().getFileStreamPath(fileNew);
+			//File feed_diff = getBaseContext().getFileStreamPath(fileNew);
 
 			ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -174,8 +174,6 @@ public class LoadingActivity extends Activity{
 
 
 			     });
-
-
 			 }
 
 
@@ -250,7 +248,7 @@ public class LoadingActivity extends Activity{
 			                feed = ReadFeed(fileName);
 
 
-			                Log.i(TAG,"Last cached file:"+ feed.getItem(0).getDate().substring(0, 25));
+			                Log.i(TAG,"Date in the last cached file:"+ feed.getItem(0).getDate().substring(0, 25));
 
 
 			                cache_date = feed.getItem(0).getDate().substring(0, 25);
@@ -264,7 +262,7 @@ public class LoadingActivity extends Activity{
 
                             	  // TODO Auto-generated method stub
 
-                            	  Toast toast = Toast.makeText(LoadingActivity.this,"Cached file is in sync with last server update",Toast.LENGTH_LONG);
+                            	  Toast toast = Toast.makeText(LoadingActivity.this,"No new blog posts",Toast.LENGTH_LONG);
                             	  toast.show();
 			    }
 
@@ -281,14 +279,18 @@ public class LoadingActivity extends Activity{
 			    @Override
 			    public void run() {
 			          // TODO Auto-generated method stub
-			          Toast toast = Toast.makeText(LoadingActivity.this,"Updating cache file",Toast.LENGTH_LONG);
+			          Toast toast = Toast.makeText(LoadingActivity.this,"Updating blogs list",Toast.LENGTH_LONG);
 			          toast.show();
 			    }
 			       });
 		           //new AsyncLoadXMLFeed().execute(); //Logic needs to be changed to just update those which are added.
 			       
 			       //List Activity update Logic based on just fetching updated Blog posts
+			       Log.i(TAG,"Date of last blog post in cache file:"+ cache_date);
+			       
                    diff_feed = mydiff.parseXml(RSSFEEDURL, cache_date);
+                   Log.i(TAG,"Number of updated blog posts:"+ diff_feed.getItemCount());
+                   
                    rem_oldfeed = ReadFeed(fileName);
                   
                   for (int i=0;i<rem_oldfeed.getItemCount();i++){

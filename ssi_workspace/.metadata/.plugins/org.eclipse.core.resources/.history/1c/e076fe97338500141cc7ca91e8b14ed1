@@ -425,6 +425,39 @@ public class LoadingActivity extends Activity{
       		}
       	}
       	
+      	//Method to append the current updated feed on top of already existing feedFile
+      	
+      	private void AppendFeed(RSSFeed data,RSSFeed data_old){
+      		FileOutputStream fOut = null;
+      		ObjectOutputStream osw = null;
+
+      		try {
+      			fOut = openFileOutput(fileNew, MODE_PRIVATE);
+      			osw = new ObjectOutputStream(fOut);
+      			
+      		    osw.writeObject(data);
+      		    osw.writeObject(data_old);
+      		    
+      			osw.flush();
+      		}
+
+      		catch (Exception e) {
+      			e.printStackTrace();
+      		}
+
+      		finally {
+      			try {
+      				fOut.close();
+      			} catch (IOException e) {
+      				e.printStackTrace();
+      			}
+      		}
+      		
+      		
+      		
+      	}	
+      	
+
       	// Method to write the feed to the File
       	private void WriteFeed(RSSFeed data) {
 

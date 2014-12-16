@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<project name="Soton_Workspace" default="all" basedir=".">
+
+<target name="all" depends="clean", "compile" description="Builds the whole project">
+    <echo>Doing all</echo>
+</target>
+
+
+</project>

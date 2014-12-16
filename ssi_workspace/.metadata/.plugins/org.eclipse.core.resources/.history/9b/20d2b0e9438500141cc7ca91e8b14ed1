@@ -283,62 +283,28 @@ public class LoadingActivity extends Activity{
 			          toast.show();
 			    }
 			       });
-			     //Progress bar populating list view thread
-	      			new Thread(new Runnable(){
-
-	      				@Override
-	      				public void run() {
-	      					// TODO Auto-generated method stub    				
-	      					while(mProgressStatus < 100){
-	      						
-	      						try{
-	      							Thread.sleep(1000);
-	      						}
-	      						catch(InterruptedException e){
-	      							e.printStackTrace();
-	      						}	
-	      					    mProgressStatus += 1;
-	      						
-	      						//Update Progress Bar
-	      						mHandler.post(new Runnable(){
-
-	      							@Override
-	      							public void run() {
-	      								// TODO Auto-generated method stub
-	      								mProgress.setProgress(mProgressStatus);
-	      								textView.setText(mProgressStatus + "%");
-	 
-	      								
-	      							}
-	      							
-	      							
-	      						});
-	      						
-	      					}
-	      					
-	      				}
-	      				
-	      			}).start();
-		       
-	      				//List Activity update Logic based on just fetching updated Blog posts
-	      				Log.i(TAG,"Date of last blog post in cache file:"+ cache_date);
+		           //new AsyncLoadXMLFeed().execute(); //Logic needs to be changed to just update those which are added.
 			       
-	      				diff_feed = mydiff.parseXml(RSSFEEDURL, cache_date);
-	      				Log.i(TAG,"Number of updated blog posts:"+ diff_feed.getItemCount());
+			       //List Activity update Logic based on just fetching updated Blog posts
+			       Log.i(TAG,"Date of last blog post in cache file:"+ cache_date);
+			       
+                   diff_feed = mydiff.parseXml(RSSFEEDURL, cache_date);
+                   Log.i(TAG,"Number of updated blog posts:"+ diff_feed.getItemCount());
                    
-	      				rem_oldfeed = ReadFeed(fileName);
+                   rem_oldfeed = ReadFeed(fileName);
                   
-	      				for (int i=0;i<rem_oldfeed.getItemCount();i++){
+                  for (int i=0;i<rem_oldfeed.getItemCount();i++){
                 	   
-	      					diff_feed.addItem(rem_oldfeed.getItem(i));
+                	diff_feed.addItem(rem_oldfeed.getItem(i));
                 	
-	      				}
+                  }
                 	   
-	     
-	      				//Storing the final appended feed into cache file or updating cache file
-	      				WriteFeed(diff_feed);
+                   //AppendFeed(diff_feed,rem_oldfeed);
                    
-	      				startListActivity(diff_feed);
+                   //Storing the final appended feed into cache file or updating cache file
+                   WriteFeed(diff_feed);
+                   
+                   startListActivity(diff_feed);
                    
 			       }
 	            }

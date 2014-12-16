@@ -3,3 +3,6 @@ language: java
 before_install:
 
   - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+
+install: ant deps
+

@@ -2,7 +2,7 @@
 
 <project name="ssi_workspace" default="all" basedir=".">
 
-<target name="all" depends="clean, compile" description="Builds the whole project">
+<target name="all" description="Builds the whole project">
     <echo>Doing all</echo>
 </target>
 

@@ -13,14 +13,6 @@ public class MainActivity extends Activity {
 	
 	//private static final String TAG = "MyActivity";
 	
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onStart()
-	 */
-	
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onCreate(android.os.Bundle)
-	 */
-	
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package uk.ac.software.parser;
 
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -30,6 +31,10 @@ public class RSSItemParser {
 			DocumentBuilderFactory dbf;
 			dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
+			
+			//HTTP GET request method
+			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+			urlConnection.setRequestMethod("GET");
 
 			// Parse the xml
 			Document doc = db.parse(new InputSource(url.openStream()));

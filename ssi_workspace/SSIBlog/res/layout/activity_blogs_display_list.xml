@@ -15,9 +15,10 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="23dp"
         android:indeterminate="false"
-        android:max="100"
-        android:progress="1"
+        android:max="100"     
         android:progressDrawable="@drawable/progress_bar"> 
+        
+        <!--android:progress="1"-->
      
        </ProgressBar>
        

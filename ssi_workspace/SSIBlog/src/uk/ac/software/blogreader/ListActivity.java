@@ -78,7 +78,7 @@ public class ListActivity extends Activity{
 		// Get feed form the file
 		feed = (RSSFeed) getIntent().getExtras().get("feed");
 
-		// Initialize the variables:
+		// Initialise the variables:
 		lv = (ListView) findViewById(R.id.listView);
 		lv.setVerticalFadingEdgeEnabled(true);
 

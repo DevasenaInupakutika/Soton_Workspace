@@ -1,5 +1,6 @@
 package uk.ac.software.blogreader.image;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -79,12 +80,16 @@ public class ImageLoader {
 			URL imageUrl = new URL(url);
 			HttpURLConnection conn = (HttpURLConnection) imageUrl
 					.openConnection();
+			
+			//HTTP GET request method
+			conn.setRequestMethod("GET");
+			
             //   Indicating the connection to use caches
 	        conn.setUseCaches(true);
 			conn.setConnectTimeout(30000);
 			conn.setReadTimeout(30000);
 			conn.setInstanceFollowRedirects(true);
-			InputStream is = conn.getInputStream();
+			InputStream is = new BufferedInputStream(conn.getInputStream());
 			OutputStream os = new FileOutputStream(f);
 			Utils.CopyStream(is, os);
 			os.close();

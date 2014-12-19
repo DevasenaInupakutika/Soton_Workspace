@@ -36,12 +36,11 @@ import android.widget.Toast;
 import uk.ac.software.parser.DOMParser;
 import uk.ac.software.parser.DiffRSSItemParser;
 import uk.ac.software.parser.RSSFeed;
-import uk.ac.software.parser.RSSItem;
 import uk.ac.software.parser.RSSItemParser;
 import uk.ac.software.parser.SAXSSIParser;
 
 public class LoadingActivity extends Activity{
-	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-all";
+	private String RSSFEEDURL = "http://www.software.ac.uk/blog/rss-20";
 	RSSFeed feed = null;
 	RSSFeed rem_oldfeed = null;
 	String cache_date;
@@ -50,9 +49,9 @@ public class LoadingActivity extends Activity{
 	RSSFeed diff_feed = null;
 	//RSSFeed final_feed = null;
 	String fileName;
-	String fileNew;
+	//String fileNew;
     DOMParser myParser = new DOMParser();
-    SAXSSIParser mySAXParser = new SAXSSIParser();
+    //SAXSSIParser mySAXParser = new SAXSSIParser();
     RSSItemParser myRSSItemParser = new RSSItemParser();
     DiffRSSItemParser mydiff = new DiffRSSItemParser();
     private static final String TAG = "MyActivity";
@@ -125,7 +124,7 @@ public class LoadingActivity extends Activity{
 		protected Void doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			fileName = "SSIRSSFeed.blog";
-			fileNew = "RSSFeedFinal.blog";
+			//fileNew = "RSSFeedFinal.blog";
 
 			File feedFile = getBaseContext().getFileStreamPath(fileName);
 			//File feed_diff = getBaseContext().getFileStreamPath(fileNew);
@@ -292,7 +291,7 @@ public class LoadingActivity extends Activity{
 	      					while(mProgressStatus < 100){
 	      						
 	      						try{
-	      							Thread.sleep(1000);
+	      							Thread.sleep(250);
 	      						}
 	      						catch(InterruptedException e){
 	      							e.printStackTrace();
@@ -377,7 +376,7 @@ public class LoadingActivity extends Activity{
       					while(mProgressStatus < 100){
       						
       						try{
-      							Thread.sleep(1000);
+      							Thread.sleep(250);
       						}
       						catch(InterruptedException e){
       							e.printStackTrace();
